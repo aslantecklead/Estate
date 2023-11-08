@@ -1,0 +1,135 @@
+.logo {
+    width: 35px;
+    height: 35px;
+    background: url("/public/images/Group.png") no-repeat;
+    background-size: 100% 100%; 
+    position: relative;
+    top: -75px;
+    left: 130px;
+    z-index: 2;
+  }
+
+.pageHeader {
+    background-color: #35393E; 
+}
+
+.navbar-brand img {
+    width: 35px; 
+    height: 35px;
+}
+
+.navbar-brand {
+    color: #fff;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff; 
+}
+
+.navbar-toggler {
+    border: none; 
+}
+
+.navbar-toggler:focus, .navbar-toggler:hover {
+    background-color: #fff; 
+}
+
+.nav-link {
+    color: #fff; 
+}
+
+.nav-link:hover {
+    color: gray;
+}
+
+.centered-box {
+    background-color: #2b3035;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+    box-shadow: 1px 1px 15px black; 
+    z-index: -1;
+}
+
+.content {
+    background: gray;
+    width: 75%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: white;
+    z-index: -2;
+}
+
+.card {
+    height: 220px;
+    width: 100%;
+    gap: 110px;
+    margin-bottom: 20px;
+    display: flex;
+    border: 2.2px solid #495055; 
+}
+
+.row {
+    margin-top: 50px; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+    margin-bottom: 10px; 
+    padding: 10px;
+}
+
+.col-md-4 {
+    width: 400px;
+    position: relative;
+    display: flex; 
+    flex-direction: column; 
+}
+
+.card-image {
+    background-color: #55595c;
+    height: 65%;
+    width: 100%;
+    position: absolute;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.card-img {
+    object-fit: cover;
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.card-body {
+    margin-top: 125px;
+
+    z-index: 1;
+}
+
+.price { 
+    margin-top: 8px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+}
+
+.name,
+.slash,
+.broker_name
+ {
+    margin: 0;
+}
+
+.slash {
+    margin: 0 5px;
+}
+

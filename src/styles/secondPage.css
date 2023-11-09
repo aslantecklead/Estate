@@ -184,19 +184,4 @@
 #cardContainer {
     height: 100%;
     overflow-y: auto;
-    scroll-behavior: smooth;
-}
-
-#centered-box {
-    
-}
-
-.pages {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    width: 99.4%;
-    height: 8%;
-    background-color: yellow;
-    z-index: 2;
 }

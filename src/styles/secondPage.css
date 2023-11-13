@@ -71,16 +71,6 @@
     overflow: hidden;
 }
 
-.content {
-    background: gray;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    background-color: white;
-    z-index: -2;
-}
-
 .card {
     height: 250px;
     width: 100%;
@@ -190,3 +180,12 @@
     overflow-y: auto;
 }
 
+.map {
+    //background-color: red;
+    position: fixed;
+    top: 80px;
+    left: 40%;
+    width: 60%;
+    height: calc(100% - 80px);
+    z-index: 2;
+}

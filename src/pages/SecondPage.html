@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 	<title>Urban Hunter</title>
@@ -7,6 +7,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel='stylesheet' href='../bootstrap/dist/css/bootstrap.css'>
 	<link rel="stylesheet" href="../styles/secondPage.css">
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=6aebb30f-4a1c-4d0e-993f-09356b52d525&lang=ru_RU"
+		type="text/javascript">
+		</script>
+	<script type="text/javascript">
+		ymaps.ready(init)
+		function init() {
+			var myMap = new ymaps.Map("map", {
+				center: [40.7128, -74.0060],
+				zoom: 13
+			})
+		}
+	</script>
 </head>
 
 <body>
@@ -44,7 +56,8 @@
 		</div>
 	</div>
 
-	<div class="content">
+	<div class="map" id="map">
+
 	</div>
 
 	<footer>

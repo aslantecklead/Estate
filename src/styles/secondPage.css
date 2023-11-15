@@ -151,19 +151,6 @@
     margin: 0 5px;
 }
 
-.address-beds {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 5px;
-}
-
-.name,
-.beds {
-    font-size: 13px;
-    margin: 0;
-}
-
 .name,
 .slash,
 .broker_name {

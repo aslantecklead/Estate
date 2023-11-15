@@ -8,7 +8,7 @@
       "longitude": -118.43118
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 2,
+    "minBeds": 2,
     "minBaths": 3,
     "minArea": 2776,
     "imgSrc": "https://photos.zillowstatic.com/fp/bda92e278b4aebcf1846027767762ba9-p_e.jpg",
@@ -3262,7 +3262,7 @@
       "longitude": -118.16165
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 1,
+    "minBeds": 1,
     "minBaths": 1,
     "minArea": 666,
     "imgSrc": "https://photos.zillowstatic.com/fp/13adf4036c6e15690bae1c8b19298ef0-p_e.jpg",
@@ -3617,7 +3617,7 @@
       "longitude": -118.396255
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 1,
+    "minBeds": 1,
     "minBaths": 1,
     "minArea": 916,
     "imgSrc": "https://photos.zillowstatic.com/fp/035a5fb1e9f3d9b7d715e2af860962bc-p_e.jpg",
@@ -5012,7 +5012,7 @@
       "longitude": -117.86456
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 3,
+    "minBeds": 3,
     "minBaths": 2,
     "minArea": 1344,
     "imgSrc": "https://photos.zillowstatic.com/fp/ca48c2ab7279d5426c7410b22ac91d70-p_e.jpg",
@@ -6654,7 +6654,7 @@
       "longitude": -117.4666
     },
     "rentalMarketingSubType": "unknown",
-    "bads": null,
+    "minBeds": null,
     "minBaths": 0,
     "minArea": null,
     "imgSrc": "https://photos.zillowstatic.com/fp/31bb637be38f32edc97f95637809429f-p_e.jpg",
@@ -7300,7 +7300,7 @@
       "longitude": -117.183
     },
     "rentalMarketingSubType": "unknown",
-    "bads": null,
+    "minBeds": null,
     "minBaths": 0,
     "minArea": null,
     "imgSrc": "https://photos.zillowstatic.com/fp/31bb637be38f32edc97f95637809429f-p_e.jpg",
@@ -11098,7 +11098,7 @@
       "longitude": -117.61314
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 2,
+    "minBeds": 2,
     "minBaths": 1,
     "minArea": 960,
     "imgSrc": "https://photos.zillowstatic.com/fp/5c90aa22299d806e15a3926074d02463-p_e.jpg",
@@ -12777,7 +12777,7 @@
       "longitude": -118.56445
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 1,
+    "minBeds": 1,
     "minBaths": 1,
     "minArea": 740,
     "imgSrc": "https://photos.zillowstatic.com/fp/2ed91be2951d3e2005a1b96835bad9d2-p_e.jpg",
@@ -13282,7 +13282,7 @@
       "longitude": -117.24673
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 2,
+    "minBeds": 2,
     "minBaths": 1,
     "minArea": 672,
     "imgSrc": "https://photos.zillowstatic.com/fp/1f87eb6e6969f86734a30d8328b51dab-p_e.jpg",
@@ -14870,7 +14870,7 @@
       "longitude": -118.66517
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 2,
+    "minBeds": 2,
     "minBaths": 2,
     "minArea": 1142,
     "imgSrc": "https://photos.zillowstatic.com/fp/5ea4c06ead131b139f717e77edd91b07-p_e.jpg",
@@ -16946,7 +16946,7 @@
       "longitude": -117.51649
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 2,
+    "minBeds": 2,
     "minBaths": 1,
     "minArea": 720,
     "imgSrc": "https://photos.zillowstatic.com/fp/322647da057a328e1c4060d9a7edcb79-p_e.jpg",
@@ -24190,7 +24190,7 @@
       "longitude": -117.55378
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 2,
+    "minBeds": 2,
     "minBaths": 2,
     "minArea": 1176,
     "imgSrc": "https://photos.zillowstatic.com/fp/9abbe0b2ffac8391e82e232e315d6256-p_e.jpg",
@@ -27209,7 +27209,7 @@
       "longitude": -118.433205
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 1,
+    "minBeds": 1,
     "minBaths": 1,
     "minArea": 202,
     "imgSrc": "https://photos.zillowstatic.com/fp/d4f0ae36567f31149ba3b639ea65e244-p_e.jpg",
@@ -27241,7 +27241,7 @@
       "longitude": -117.19638
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 2,
+    "minBeds": 2,
     "minBaths": 2,
     "minArea": 1440,
     "imgSrc": "https://photos.zillowstatic.com/fp/7e449086e3ca8d00879b72f507e563fd-p_e.jpg",
@@ -28298,7 +28298,7 @@
       "longitude": -117.99745
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 3,
+    "minBeds": 3,
     "minBaths": 2,
     "minArea": 1152,
     "imgSrc": "https://photos.zillowstatic.com/fp/f1af5a761855ce32e843f69a6a5066cf-p_e.jpg",
@@ -29739,7 +29739,7 @@
       "longitude": -118.403885
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 2,
+    "minBeds": 2,
     "minBaths": 2,
     "minArea": 1040,
     "imgSrc": "https://photos.zillowstatic.com/fp/0ea907db5c30fec045b71427e6fe0cbd-p_e.jpg",
@@ -30158,7 +30158,7 @@
       "longitude": -118.04452
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 3,
+    "minBeds": 3,
     "minBaths": 2,
     "minArea": 1272,
     "imgSrc": "https://photos.zillowstatic.com/fp/6e73d91545af9904501752282a761c05-p_e.jpg",
@@ -30732,7 +30732,7 @@
       "longitude": -117.06652
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 3,
+    "minBeds": 3,
     "minBaths": 2,
     "minArea": 920,
     "imgSrc": "https://photos.zillowstatic.com/fp/a12e5067bfd4a33be48cb702ea9e37ee-p_e.jpg",
@@ -31228,7 +31228,7 @@
       "longitude": -118.388115
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 3,
+    "minBeds": 3,
     "minBaths": 3,
     "minArea": 1818,
     "imgSrc": "https://photos.zillowstatic.com/fp/bb184cc4575b4cbb1f81d8b7d068d098-p_e.jpg",
@@ -31565,7 +31565,7 @@
       "longitude": -118.53804
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 3,
+    "minBeds": 3,
     "minBaths": 2,
     "minArea": 1187,
     "imgSrc": "https://photos.zillowstatic.com/fp/4db619050920aaa6ff17a4346f8afc38-p_e.jpg",
@@ -32593,7 +32593,7 @@
       "longitude": -118.517334
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 1,
+    "minBeds": 1,
     "minBaths": 1,
     "minArea": 683,
     "imgSrc": "https://photos.zillowstatic.com/fp/79602bd1596fb769e2e4c875090e6e4b-p_e.jpg",
@@ -36111,7 +36111,7 @@
       "longitude": -118.595825
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 2,
+    "minBeds": 2,
     "minBaths": 2,
     "minArea": 880,
     "imgSrc": "https://photos.zillowstatic.com/fp/368a6232db90a6eb3e056ce66f1a9028-p_e.jpg",
@@ -37211,7 +37211,7 @@
       "longitude": -118.34163
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 1,
+    "minBeds": 1,
     "minBaths": 1,
     "minArea": 659,
     "imgSrc": "https://photos.zillowstatic.com/fp/345b4926a525bf27268eb9e540b93482-p_e.jpg",
@@ -38139,7 +38139,7 @@
       "longitude": -117.865524
     },
     "rentalMarketingSubType": "unknown",
-    "bads": 3,
+    "minBeds": 3,
     "minBaths": 2,
     "minArea": 1040,
     "imgSrc": "https://photos.zillowstatic.com/fp/d90a06b5b67d659b4e02b550b131878e-p_e.jpg",

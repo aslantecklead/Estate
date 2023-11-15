@@ -15,7 +15,7 @@ async function loadDataFromServer() {
                     const imageUrl = data.imgSrc;
                     const price = data.price;
                     const address = data.address;
-										const beds = data.beds;
+										const brokerName = data.brokerName;
 
                     cardDiv.innerHTML = `
                         <div class="card mx-auto">
@@ -30,7 +30,7 @@ async function loadDataFromServer() {
                                             <p class="name">${address}</p>
                                         </div>
                                         <p class="slash"> | </p>
-                                        <p class="beds">beds: ${beds}</p>
+                                        <p class="broker_name">${brokerName}</p>
                                     </div>
                                 </div>
                             </div>

@@ -31,10 +31,10 @@ async function loadDataFromServer() {
         pins.forEach((data) => {
             const coordinates = [data.latLong.latitude, data.latLong.longitude];
             const price = data.price;
-            const priceText = `Price: ${price}`;
+            
         
             const placemark = new ymaps.Placemark(coordinates, {
-                iconContent: priceText, 
+                iconContent: price, 
             });
             myMap.geoObjects.add(placemark);
         });

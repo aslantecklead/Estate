@@ -1,18 +1,10 @@
 ymaps.ready(init);
 
-let myMap;
-
 function init() {
-    var centerPoint = [34.0522, -118.2437];
-    var laBounds = [
-        [34.0, -118.3],
-        [34.1, -118.2]
-    ];
-
-    myMap = new ymaps.Map("map", {
-        center: centerPoint,
+    var myMap = new ymaps.Map('map', {
+        center: [34.0522, -118.2437],
         zoom: 11.5,
-        restrictMapArea: laBounds
+        controls: []
     });
 
     myMap.setType('yandex#map');
@@ -29,25 +21,33 @@ function init() {
             }
             pins.forEach((data) => {
                 const coordinates = [data.latLong.latitude, data.latLong.longitude];
-                const price = data.price;   
+                const price = data.price;
                 const address = data.address;
                 const brokerName = data.brokerName;
+                const image = data.imgSrc;
+                const temp = data.priceLabel;
+                const minArea = data.area;
 
                 const placemark = new ymaps.Placemark(coordinates, {
-                    iconContent: price,
-                    balloonContentHeader: `Price: ${price} USD`,
-                    balloonContentBody: `Address: ${address}<br>Broker: ${brokerName}`
+                    balloonContentHeader: `<a href="#" style="text-decoration: none;">${price}</a>`,
+                    balloonContentBody: `<img src="${image}" class='mapEstateImage'> <br/>` +
+                        `<a href="#" style="text-decoration: none;">Address: ${address}</a><br>` +
+                        `<span>${data.beds} Beds, ${data.baths} Baths</span><br>` +
+                        `<span>Area: ${minArea} sq.ft.</span>`,
+                    balloonContentFooter: `<span>Broker: ${brokerName}</span>`,
+                    hintContent: `${temp}`
                 }, {
                     iconLayout: 'default#image',
-                    iconImageHref: '/public/images/greenpin.png', 
-                    iconImageSize: [17.5, 17.5], 
+                    iconImageHref: '/public/images/greenpin.png',
+                    iconImageSize: [17.5, 17.5],
                     iconImageOffset: [-10, -10]
                 });
 
                 placemark.events.add('click', function (e) {
                     myMap.balloon.open(coordinates, {
                         contentHeader: placemark.properties.get('balloonContentHeader'),
-                        contentBody: placemark.properties.get('balloonContentBody')
+                        contentBody: placemark.properties.get('balloonContentBody'),
+                        contentFooter: placemark.properties.get('balloonContentFooter')
                     });
                 });
 

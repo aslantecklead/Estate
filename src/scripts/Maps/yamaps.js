@@ -1,10 +1,19 @@
 ymaps.ready(init);
 
 function init() {
+    var californiaBounds = [
+        [32.512499, -124.482003], 
+        [36.7783, -114.130859]   
+    ];
+
+    var centerLA = [34.052235, -118.243683]; 
+
     var myMap = new ymaps.Map('map', {
-        center: [34.0522, -118.2437],
-        zoom: 11.5,
+        center: centerLA,
+        zoom: 11, 
         controls: []
+    }, {
+        restrictMapArea: californiaBounds
     });
 
     myMap.setType('yandex#map');
@@ -25,17 +34,21 @@ function init() {
                 const address = data.address;
                 const brokerName = data.brokerName;
                 const image = data.imgSrc;
-                const temp = data.priceLabel;
+                const priceLabel = data.priceLabel;
                 const minArea = data.area;
+                const beds = data.beds;
+                const baths = data.baths;
 
                 const placemark = new ymaps.Placemark(coordinates, {
-                    balloonContentHeader: `<a href="#" style="text-decoration: none;">${price}</a>`,
-                    balloonContentBody: `<img src="${image}" class='mapEstateImage'> <br/>` +
-                        `<a href="#" style="text-decoration: none;">Address: ${address}</a><br>` +
-                        `<span>${data.beds} Beds, ${data.baths} Baths</span><br>` +
-                        `<span>Area: ${minArea} sq.ft.</span>`,
-                    balloonContentFooter: `<span>Broker: ${brokerName}</span>`,
-                    hintContent: `${temp}`
+                    balloonContentHeader: `<a href="#" class="marker-link">${price}</a>`,
+                    balloonContentBody: `<div class="marker-balloon">
+                        <img src="${image}" class='mapEstateImage'><br/>
+                        <a href="#" class="property-address">Address: ${address}</a><br>
+                        <span class="property-details">${beds} Beds, ${baths} Baths</span><br>
+                        <span class="property-details">Area: ${minArea} sq.ft.</span>
+                    </div>`,
+                    balloonContentFooter: `<span class="broker-info">Broker: ${brokerName}</span>`,
+                    hintContent: `${priceLabel} | beds: ${beds} | baths: ${baths}</span>`
                 }, {
                     iconLayout: 'default#image',
                     iconImageHref: '/public/images/greenpin.png',

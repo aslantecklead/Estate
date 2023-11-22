@@ -185,3 +185,29 @@
 .hidden {
   display: none;
 }
+
+.ui-autocomplete {
+  list-style: none; /* Убрать маркеры */
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc; /* Добавить границу */
+  background-color: #d9d8de; /* Цвет фона */
+  max-height: 200px; /* Максимальная высота списка */
+  overflow-y: auto; /* Добавить полосы прокрутки, если список превышает максимальную высоту */
+  width: 200px; /* Ширина списка */
+  border-radius: 10px; /* Скруглить углы */
+  
+}
+
+.ui-menu-item {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.ui-menu-item:hover {
+  background-color: #007bff; 
+}
+
+.ui-state-focus {
+  background-color: gray; 
+}

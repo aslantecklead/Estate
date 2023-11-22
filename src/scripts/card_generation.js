@@ -1,6 +1,6 @@
 const cardContainer = document.getElementById("cardContainer");
 const paginationContainer = document.querySelector(".pagination_section");
-const itemsPerPage = 9; 
+const itemsPerPage = 10; 
 let currentPage = 1; 
 
 async function loadDataFromServer() {

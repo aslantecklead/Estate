@@ -140,6 +140,13 @@
   align-items: center;
 }
 
+.onMap_Search > .search_btn {
+  margin-right: 40px;
+  background-image: url('');
+  background-size: cover; 
+}
+
+
 .line {
   height: 45px; 
   border: none; 

@@ -64,7 +64,7 @@ function init() {
                     hintContent: `${priceLabel} | beds: ${beds} | baths: ${baths}</span>`
                 }, {
                     iconLayout: 'default#image',
-                    iconImageHref: '/images/greenpin.png',
+                    iconImageHref: '/public/images/greenpin.png',
                     iconImageSize: [17.5, 17.5],
                     iconImageOffset: [-10, -10]
                 });

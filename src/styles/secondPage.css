@@ -1,18 +1,18 @@
 @font-face {
 	font-family: headlineFont;
-	src: url("/fonts/gilroy-semibold.ttf");
+	src: url("/public/fonts/gilroy-semibold.ttf");
 }
 
 @font-face {
 	font-family: poppinsBold;
-	src: url("/fonts/Poppins-SemiBold.ttf");
+	src: url("/public/fonts/Poppins-SemiBold.ttf");
 }
 
 
 .logo {
     width: 35px;
     height: 35px;
-    background: url("/images/Group.png") no-repeat;
+    background: url("/public/images/Group.png") no-repeat;
     background-size: 100% 100%; 
     position: relative;
     top: -75px;

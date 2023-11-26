@@ -1,24 +1,24 @@
 @font-face {
-  font-family: headlineFont;
-  src: url("/fonts/gilroy-semibold.ttf");
+	font-family: headlineFont;
+	src: url("/public/fonts/gilroy-semibold.ttf");
 }
 
 .headline {
-  font-size: 50px;
-  text-align: center; 
-  font-family: headlineFont;
-  color: white;
+	font-size: 50px;
+	text-align: center; 
+	font-family: headlineFont;
+	color: white;
 }
 
 .main_section {
-  height: 900px;
-  background: url("/images/backgroung.png") no-repeat center center fixed;
-  background-size: cover;
-  padding-top: 120px;
+	height: 900px;
+	background: url("/public/images/backgroung.png") no-repeat center center fixed;
+	background-size: cover;
+	padding-top: 120px;
 }
 
 .upper_line {
-  border: none;
+	border: none;
   background-color: white;
   height: 0.08px;
   width: 90%;
@@ -28,7 +28,7 @@
 .logo {
   width: 35px;
   height: 35px;
-  background: url("/images/Group.png") no-repeat;
+  background: url("/public/images/Group.png") no-repeat;
   background-size: 100% 100%; 
   position: relative;
   top: -75px;
@@ -56,7 +56,7 @@
 
 .pages h1 a {
   text-decoration: none; 
-  color: #fff;/* Remove underlines from anchor tags */
+	color: #fff;/* Remove underlines from anchor tags */
 }
 
 .pages h1::before {
@@ -77,34 +77,34 @@
 }
 
 .login {
-  position: absolute;
-  top: 50px;
-  right: 95px;
-  height: 35px;
-  width: 150px;
-  z-index: 2;
+	position: absolute;
+	top: 50px;
+	right: 95px;
+	height: 35px;
+	width: 150px;
+	z-index: 2;
 }
 
 .login input[type=button] {
-  width: 150px;
-  height: 35px;
-  background: #fff;
-  border: 1px solid #fff;
-  cursor: pointer;
-  border-radius: 2px;
-  color: #a18d6c;
-  font-family: headlineFont, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  padding: 6px;
+	width: 150px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: headlineFont, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
 }
 
 .login input[type=button]:hover {
-  opacity: 0.8;
+	opacity: 0.8;
 }
 
 .login input[type=button]:active {
-  opacity: 0.6;
+	opacity: 0.6;
 }
 
 .search_main {
@@ -139,6 +139,13 @@
   justify-content: center; 
   align-items: center;
 }
+
+.onMap_Search > .search_btn {
+  margin-right: 40px;
+  background-image: url('');
+  background-size: cover; 
+}
+
 
 .line {
   height: 45px; 
@@ -177,4 +184,30 @@
 
 .hidden {
   display: none;
+}
+
+.ui-autocomplete {
+  list-style: none; /* Убрать маркеры */
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc; /* Добавить границу */
+  background-color: #d9d8de; /* Цвет фона */
+  max-height: 200px; /* Максимальная высота списка */
+  overflow-y: auto; /* Добавить полосы прокрутки, если список превышает максимальную высоту */
+  width: 200px; /* Ширина списка */
+  border-radius: 10px; /* Скруглить углы */
+  
+}
+
+.ui-menu-item {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.ui-menu-item:hover {
+  background-color: #007bff; 
+}
+
+.ui-state-focus {
+  background-color: gray; 
 }

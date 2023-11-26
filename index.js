@@ -6,21 +6,24 @@ const fetch = require('node-fetch');
 
 app.use(express.json());
 
-const db = require('./src/scripts/database');
+const db = require('/scripts/database');
+
+app.use(express.static('src'));
 
 app.get('/', (req, res) => {
   res.send('Привет, мир!');
 });
 
-app.get('/properties', (req, res) => {
-  db.getProperties((err, result) => {
-    if (err) {
-      res.status(500).json(err);
-    } else {
-      res.json(result);
-    }
-  });
-});
+
+// app.get('/properties', (req, res) => {
+//   db.getProperties((err, result) => {
+//     if (err) {
+//       res.status(500).json(err);
+//     } else {
+//       res.json(result);
+//     }
+//   });
+// });
 
 let dataset;
 

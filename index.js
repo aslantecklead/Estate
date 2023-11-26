@@ -6,14 +6,11 @@ const fetch = require('node-fetch');
 
 app.use(express.json());
 
-const db = require('/scripts/database');
-
-app.use(express.static('src'));
+// const db = require('/scripts/database');
 
 app.get('/', (req, res) => {
-  res.send('Привет, мир!');
+  res.sendFile(__dirname + '/public/index.html');
 });
-
 
 // app.get('/properties', (req, res) => {
 //   db.getProperties((err, result) => {
@@ -33,7 +30,7 @@ function getDataset() {
 
 app.get('/estatelist', async (req, res) => {
   try {
-    const data = fs.readFileSync('./src/scripts/Dependencies/GetSearchPageState.json', 'utf8');
+    const data = fs.readFileSync('/scripts/Dependencies/GetSearchPageState.json', 'utf8');
     dataset = JSON.parse(data);
     res.json(dataset);
     

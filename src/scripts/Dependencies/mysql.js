@@ -9,11 +9,19 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * FROM real_estate', (error, results) => {
-    if (error) {
-        throw error;
-    }
-    console.log('Data from the real_estate table:', results);
+const query = `
+  SELECT 
+    c.id_client,
+    c.name AS client_name,
+    SUM(d.price) AS total_purchase_amount
+  FROM client c
+  JOIN deal d ON c.id_deal = d.id_deal
+  GROUP BY c.id_client;
+`;
+
+connection.query(query, (error, results, fields) => {
+  if (error) throw error;
+  console.log(results);
 });
 
 connection.end();

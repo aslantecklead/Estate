@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/auth', (req, res) => {
+  res.sendFile(__dirname + '/Auth.html');
+});
+
 let dataset;
 
 function getDataset() {
@@ -33,5 +37,4 @@ app.get('/estatelist', async (req, res) => {
 app.listen(port, () => {
   console.log(`Сервер запущен на порту ${port}`);
 });
-
 

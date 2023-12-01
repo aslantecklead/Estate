@@ -1,4 +1,5 @@
 GET http://localhost:3001/posts
+Authorization: Baerar eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiWGVuaWEiLCJpYXQiOjE3MDE0NTU0Mjd9.-rhqkF7ysijcD6qAyNPYEBaWKwn27jSHjytPhfODAbA
 
 ###
 
@@ -6,6 +7,5 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "username": "Aslan"
+  "username": "Xenia"
 }
- 

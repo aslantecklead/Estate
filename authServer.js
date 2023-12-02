@@ -68,7 +68,6 @@ app.post('/login', (req, res) => {
     const accessToken = generateAccessToken(user);
     const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
 
-    // Здесь выполняем UPDATE запрос, обновляющий refresh токен для конкретного клиента
     connection.query('UPDATE client_tokens SET refresh_token = ? WHERE id_client = ?', [refreshToken, results[0].id_client], (err) => {
       if (err) {
         console.error('Ошибка при обновлении refresh токена:', err);

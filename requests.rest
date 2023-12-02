@@ -1,5 +1,21 @@
 GET http://localhost:3001/posts
-Authorization: Baerar eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiWGVuaWEiLCJpYXQiOjE3MDE0NTYxMzN9.XL6OHVk6ltENFAGMU7URFAbzfsdZYkz1JI_B70jKLbU
+Authorization: Baerar eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiWGVuaWEiLCJpYXQiOjE3MDE1MTQxNTd9.2xrZPui2toq6gfR8G7cbIPAauyx9vFKvvs39gE43Wc8
+
+###
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiWGVuaWEiLCJpYXQiOjE3MDE1MTQyMjR9.7eCW_Q5zGyomB_2tTJRBCz0XbYA9kgez77_3ITWvJBE"
+}
+
+###
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiWGVuaWEiLCJpYXQiOjE3MDE1MTQyMjR9.7eCW_Q5zGyomB_2tTJRBCz0XbYA9kgez77_3ITWvJBE"
+}
 
 ###
 POST http://localhost:4000/login

@@ -158,6 +158,7 @@ CREATE TABLE client (
     id_client INT AUTO_INCREMENT PRIMARY KEY,
     name TEXT,
     email TEXT,
+    token TEXT,
     phoneNumber TEXT,
     id_deal INT,
     FOREIGN KEY (id_deal) REFERENCES deal(id_deal)
@@ -171,7 +172,7 @@ VALUES
     ('Sophia Davis', 'sophia@example.com', '444-555-6666', 24),
     ('William Wilson', 'william@example.com', '777-888-9999', 25);
 
-SELECT * FROM client;
+select * from client
 
 #Представление
 CREATE VIEW AllPropertyData AS

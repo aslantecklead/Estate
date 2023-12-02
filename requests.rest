@@ -1,12 +1,9 @@
-GET http://localhost:3001/posts
-Authorization: Baerar eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiWGVuaWEiLCJpYXQiOjE3MDE1MTQxNTd9.2xrZPui2toq6gfR8G7cbIPAauyx9vFKvvs39gE43Wc8
-
 ###
 DELETE http://localhost:4000/logout
 Content-Type: application/json
 
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiWGVuaWEiLCJpYXQiOjE3MDE1MTQyMjR9.7eCW_Q5zGyomB_2tTJRBCz0XbYA9kgez77_3ITWvJBE"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaXZhbkBleGFtcGxlLmNvbSIsImlhdCI6MTcwMTUxOTI2NywiZXhwIjoxNzAxNTE5MzI3fQ.3dXAZlGDdYSvtC7a4a7FOq83VfIZGkJ-67bQM9s8xYg"
 }
 
 ###
@@ -14,13 +11,17 @@ POST http://localhost:4000/token
 Content-Type: application/json
 
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiWGVuaWEiLCJpYXQiOjE3MDE1MTQyMjR9.7eCW_Q5zGyomB_2tTJRBCz0XbYA9kgez77_3ITWvJBE"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaXZhbkBleGFtcGxlLmNvbSIsImlhdCI6MTcwMTUyMDE4MH0.ikKdtqlG6aCfid_hqFKPsUF66IBfbqnrfjUyNWds7ck"
 }
 
 ###
 POST http://localhost:4000/login
 Content-Type: application/json
-
 {
-  "username": "Xenia"
+  "email": "ivan@example.com",
+  "password": "secretPassword"
 }
+
+###
+GET http://localhost:4000/current-user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaXZhbkBleGFtcGxlLmNvbSIsImlhdCI6MTcwMTUyMDIwMywiZXhwIjoxNzAxNTIwMjYzfQ.kefZCRb7uFbSRYAM7Xx0CGwPxrip5mZICPsS-r5HuOE

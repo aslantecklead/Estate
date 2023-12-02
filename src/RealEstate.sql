@@ -158,21 +158,26 @@ CREATE TABLE client (
     id_client INT AUTO_INCREMENT PRIMARY KEY,
     name TEXT,
     email TEXT,
-    token TEXT,
+    password text,
     phoneNumber TEXT,
     id_deal INT,
     FOREIGN KEY (id_deal) REFERENCES deal(id_deal)
 );
 
-INSERT INTO client (name, email, phoneNumber, id_deal)
-VALUES
-    ('John Smith', 'john@example.com', '123-456-7890', 21),
-    ('Emma Johnson', 'emma@example.com', '987-654-3210', 22),
-    ('Michael Brown', 'michael@example.com', '111-222-3333', 23),
-    ('Sophia Davis', 'sophia@example.com', '444-555-6666', 24),
-    ('William Wilson', 'william@example.com', '777-888-9999', 25);
+INSERT INTO client (name, email, password, phoneNumber)
+VALUES ('Иван', 'ivan@example.com', 'secretPassword', '1234567890');
 
-select * from client
+SELECT * FROM client;
+
+CREATE TABLE client_tokens (
+    id_token INT AUTO_INCREMENT PRIMARY KEY,
+    id_client INT,
+    access_token TEXT,
+    refresh_token TEXT,
+    FOREIGN KEY (id_client) REFERENCES client(id_client)
+);
+
+SELECT * FROM client_tokens;
 
 #Представление
 CREATE VIEW AllPropertyData AS

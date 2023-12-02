@@ -42,31 +42,4 @@ app.get('/estatelist', async (req, res) => {
 //   console.log(`Сервер запущен на порту ${port}`);
 // });
 
-const posts = [
-  {
-    username: 'Aslan',
-    title: 'Post 1'
-  }, 
-  {
-    username: 'Xenia',
-    title: 'Post 2'
-  }
-]
-
-app.get('/posts', authenticateToken,(req, res) => {
-  res.json(posts.filter(posts => posts.username === req.user.name));
-});
-
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  const token =  authHeader && authHeader.split(' ')[1];
-  if(token == null) return res.sendStatus(401)
-
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if(err) return res.sendStatus(403)
-    req.user = user
-    next()
-  })
-}
-
 app.listen(3001);

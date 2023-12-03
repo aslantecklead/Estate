@@ -45,28 +45,3 @@ async function initAutocomplete() {
     }
 }
 
-// Функция для получения токена доступа
-function getAccessToken() {
-    return localStorage.getItem('accessToken');
-}
-
-document.addEventListener('DOMContentLoaded', async function () {
-    try {
-        const response = await fetch('http://localhost:4000/current-user', {
-            headers: {
-                Authorization: `Bearer ${getAccessToken()}`, // Получаем токен доступа
-            },
-        });
-        if (response.ok) {
-            const userData = await response.json();
-            const currentUserElement = document.getElementById('currentUser');
-            currentUserElement.textContent = `Welcome, ${userData.user.name}!`;
-        } else {
-            console.error('Failed to fetch current user data:', response.status);
-        }
-    } catch (error) {
-        console.error('Failed to load data:', error);
-    }
-
-    initAutocomplete();
-});

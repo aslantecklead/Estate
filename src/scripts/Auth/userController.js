@@ -22,8 +22,10 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
   })
   .then(data => {
     console.log("Ответ сервера:", data);
-    // const { name } = data; 
-    // localStorage.setItem('currentUser', JSON.stringify({ name: name })); 
+    localStorage.setItem('accessToken', data.accessToken);
+    localStorage.setItem('refreshToken', data.refreshToken);
+    localStorage.setItem('userId', data.id); // Сохраняем ID пользователя в localStorage
+    console.log('Tokens сохранены:', data.accessToken, data.refreshToken);
     window.location.href = '/';
   })
   .catch(error => {

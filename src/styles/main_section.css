@@ -10,6 +10,14 @@
 	color: white;
 }
 
+.headline_username {
+  margin-top: 25px;
+	font-size: 20px;
+	text-align: center; 
+	font-family: headlineFont;
+	color: white;
+}
+
 .main_section {
 	height: 900px;
 	background: url("/images/backgroung.png") no-repeat center center fixed;

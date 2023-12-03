@@ -112,6 +112,8 @@ VALUES
 
 SELECT * FROM estate;
 
+delete from estate where id_estate = 1;
+
 CREATE TABLE offer (
     id_offer INT AUTO_INCREMENT PRIMARY KEY,
     propertyDescription TEXT,
@@ -157,15 +159,15 @@ SELECT * FROM deal;
 CREATE TABLE client (
     id_client INT AUTO_INCREMENT PRIMARY KEY,
     name TEXT,
-    email TEXT,
-    password text,
+    email TEXT CHECK (email REGEXP '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'),
+    password TEXT CHECK (LENGTH(password) >= 8 AND password REGEXP '^[a-zA-Z0-9]+$'), 
     phoneNumber TEXT,
     id_deal INT,
     FOREIGN KEY (id_deal) REFERENCES deal(id_deal)
 );
 
 INSERT INTO client (name, email, password, phoneNumber)
-VALUES ('Иван', 'ivan@example.com', 'secretPassword', '1234567890');
+VALUES ('Иван', 'ivan@example.com', '12121212121', '1234567890');
 
 SELECT * FROM client;
 

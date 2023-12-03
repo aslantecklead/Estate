@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/styles/authpage.css">
+
 </head>
 
 <body class="back">
@@ -16,14 +17,22 @@
 	</div>
 	<form id="loginForm">
 		<h3>Login Here</h3>
-		<label for="username">Email</label>
-		<input type="text" placeholder="Enter an Email" id="username" name="email">
-		<label for="password">Password</label>
-		<input type="password" placeholder="Password" id="password" name="password">
+		<div style="position: relative;">
+			<label for="username">Email</label>
+			<input type="text" placeholder="Enter an Email" id="username" name="email">
+			<span class="error-balloon" id="emailError">Please enter a valid email</span>
+		</div>
+		<div style="position: relative;">
+			<label for="password">Password</label>
+			<input type="password" placeholder="Password" id="password" name="password">
+			<span class="error-balloon" id="passwordError">Password must be at least 8 characters</span>
+		</div>
 		<button type="submit" id="loginButton">Log In</button>
+		<button class="register_btn" id="registerButton">Registration</button>
 	</form>
 
 	<script src="/scripts/Auth/userController.js"></script>
+	<script src='/scripts/Auth/formValidator.js'></script>
 </body>
 
 </html>

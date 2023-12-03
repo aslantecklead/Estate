@@ -22,9 +22,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
   })
   .then(data => {
     console.log("Ответ сервера:", data);
-		window.location.href = '/';
+    // const { name } = data; 
+    // localStorage.setItem('currentUser', JSON.stringify({ name: name })); 
+    window.location.href = '/';
   })
   .catch(error => {
     console.error('There has been a problem with your fetch operation:', error); 
-  });
+  });  
 });

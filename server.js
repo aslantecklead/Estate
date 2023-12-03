@@ -13,8 +13,10 @@ app.use(express.json());
 app.use(express.static(__dirname + '/src'));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.sendFile(__dirname + '/src/pages/index.html');
 });
+
 
 app.get('/auth', (req, res) => {
   res.sendFile(__dirname + '/Auth.html');

@@ -24,7 +24,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     console.log("Ответ сервера:", data);
     localStorage.setItem('accessToken', data.accessToken);
     localStorage.setItem('refreshToken', data.refreshToken);
-    localStorage.setItem('userId', data.id); // Сохраняем ID пользователя в localStorage
+    localStorage.setItem('userId', data.id); 
     console.log('Tokens сохранены:', data.accessToken, data.refreshToken);
     window.location.href = '/';
   })

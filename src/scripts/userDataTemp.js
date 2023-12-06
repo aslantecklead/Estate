@@ -1,10 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
   const currentUserElement = document.getElementById('currentUser');
-
-  // Получаем ID пользователя из localStorage родительской страницы
   const userId = localStorage.getItem('userId');
-	console.log(userId);
+
   if (currentUserElement && userId) {
-    currentUserElement.innerText = `User ID: ${userId}`;
+    const userIdInt = parseInt(userId, 10);
+
+    fetch(`http://localhost:3001/client/${userIdInt}`) 
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(userData => {
+        console.log('Данные пользователя:', userData);
+        const userName = userData.name;
+        currentUserElement.innerText = `Welcome, ${userName}!`;
+      })
+      .catch(error => {
+        console.error('Проблема с получением данных пользователя:', error);
+      });
   }
 });

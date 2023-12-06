@@ -5,7 +5,14 @@ const app = express();
 const port = 3001;
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
+const mysql = require('mysql');
 
+const connection = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+});
 // app.use(bodyParser.json());
 
 app.use(express.json());
@@ -40,8 +47,23 @@ app.get('/estatelist', async (req, res) => {
   }
 });
 
-// app.listen(port, () => {
-//   console.log(`Сервер запущен на порту ${port}`);
-// });
+app.get('/client/:id', (req, res) => {
+  const userId = req.params.id; 
+
+  connection.query('SELECT name FROM client WHERE id_client = ?', userId, (err, results) => {
+    if (err) {
+      console.error('Ошибка при запросе пользователя из базы данных:', err);
+      return res.status(500).json({ error: 'Ошибка при запросе пользователя' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Пользователь не найден' });
+    }
+
+    const userName = results[0].name;
+    res.json({ name: userName }); 
+  });
+});
+
 
 app.listen(3001);

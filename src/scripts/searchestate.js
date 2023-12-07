@@ -31,13 +31,20 @@ async function initAutocomplete() {
                         }
 
                         return { label: fullAddress, value: fullAddress, zpid: (item.hdpData && item.hdpData.homeInfo && item.hdpData.homeInfo.zpid) ? item.hdpData.homeInfo.zpid : null };
+
                     });
 
                     response(addresses);
                 },
                 minLength: 2,
                 select: function(event, ui) {
-                    console.log('Selected zpid:', ui.item.zpid);
+                    const selectedZpid = ui.item.zpid; 
+                    if (selectedZpid) {
+                        localStorage.setItem('selectedZpid', selectedZpid); 
+                        console.log('Selected zpid:', selectedZpid);
+                    } else {
+                        console.error('No zpid found for selected item.');
+                    }
                 }
             });
         } else {

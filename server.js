@@ -65,5 +65,28 @@ app.get('/client/:id', (req, res) => {
   });
 });
 
+app.get('/estate/:zpid', async (req, res) => {
+  const zpid = req.params.zpid;
+
+  try {
+    const response = await fetch(`http://localhost:3001/estatelist`);
+    if (!response.ok) {
+      throw new Error('Ошибка получения данных');
+    }
+
+    const estateList = await response.json();
+    const estateData = estateList.find((item) => item.zpid === zpid);
+
+    if (estateData) {
+      res.json(estateData); // Отправка данных о недвижимости в качестве ответа
+    } else {
+      res.status(404).json({ message: 'Недвижимость не найдена' });
+    }
+  } catch (error) {
+    console.error('Ошибка:', error);
+    res.status(500).json({ error: 'Произошла ошибка' });
+  }
+});
+
 
 app.listen(3001);

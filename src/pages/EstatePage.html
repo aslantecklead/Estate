@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Estate Review</title>
+	<link rel="stylesheet" href="/styles/estate_page.css">
+	<link rel='stylesheet' href='/bootstrap/scss/bootstrap.css'>
+</head>
+
+<body>
+
+	<div class="property-listing">
+		<div class="property-image-container">
+			<img class="property-image" src="/images/Authenticate.png" alt="Изображение недвижимости">
+		</div>
+		<div class="property-details">
+			<p class="price">
+				<span class="data-price"></span>💵
+			</p>
+			<div class='data-container'>
+				<p class="address">Address📍: <span class="data-address"> </span></p>
+				<p class="broker">Broker🏦: <span class="data-broker"></span></p>
+				<p class="status">Status✅: <span class="data-status"></span></p>
+				<p class="beds">Beds🛏️: <span class="data-beds"></span></p>
+				<p class="baths">Baths🛀: <span class="data-baths"></span></p>
+				<p class="area">Area📐: <span class="data-area"></span></p>
+				<p class="tax">Tax Assessed Value💸: <span class="data-tax"></span></p>
+				<p class="lot">Lot Area Value💎: <span class="data-lot"></span></p>
+			</div>
+
+			<button id='save_pdf' class="btn btn-primary">Save as PDF 💾</button>
+		</div>
+	</div>
+	<script src='/scripts/estate_page.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+	<script src='/scripts/create_document.js'></script>
+
+</body>
+
+</html>

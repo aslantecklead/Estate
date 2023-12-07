@@ -1,0 +1,171 @@
+@font-face {
+	font-family: headlineFont;
+	src: url("/fonts/gilroy-semibold.ttf");
+}
+
+body,
+html {
+	height: 100%;
+	margin: 0;
+}
+
+.property-listing {
+	margin-top: 0.5%;
+	margin-left: 0.5%;
+	font-family: headlineFont;
+	display: flex;
+	height: 98%;
+	width: 98%;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Тень со всех сторон */
+	border-radius: 5px; 
+}
+
+.property-image-container {
+	flex: 1;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px; /* Скругление углов */
+	overflow: hidden; /* Скрытие контента за пределами области */
+	box-shadow: 2px 2px 20px #42aaff;
+}
+
+
+.property-image {
+	max-width: 100%; /* Изображение подстраивается под размер контейнера */
+	height: 100%;
+	border-radius: 2px; /* Скругление углов */
+}
+
+.property-details {
+	margin-top: 1%;
+	font-family: headlineFont;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 5px; 
+}
+
+.price {
+	margin-left: 100px;
+	font-family: headlineFont;
+	font-size: 40px;
+	font-style: bold;
+}
+/* Стили для общих классов */
+/* ...ваш код... */
+
+/* Стили для общих классов */
+.address,
+.broker,
+.status,
+.beds,
+.baths,
+.area,
+.tax,
+.lot,
+.time {
+    margin: 10px;
+    margin-left: 100px;
+    font-family: headlineFont;
+    font-size: 25px;
+    color: #888; /* Светло-серый цвет для текста */
+}
+
+/* Стили для данных */
+.data-address,
+.data-broker {
+    margin: 10px;
+    margin-left: 100px;
+    font-family: headlineFont;
+    font-size: 25px;
+    color: #333; /* Темно-серый цвет для данных */
+		text-align: right;
+		
+}
+
+.data-status,
+.data-beds,
+.data-baths,
+.data-area,
+.data-tax,
+.data-lot,
+.data-time {
+    margin: 10px;
+    margin-left: 100px;
+    font-family: headlineFont;
+    font-size: 25px;
+    color: #000; 
+		text-align: right; 
+}
+
+.address,
+.broker,
+.status,
+.beds,
+.baths,
+.area,
+.tax,
+.lot,
+.time,
+.data-address,
+.data-broker,
+.data-status,
+.data-beds,
+.data-baths,
+.data-area,
+.data-tax,
+.data-lot,
+.data-time {
+    position: relative;
+}
+
+.address::after,
+.broker::after,
+.status::after,
+.beds::after,
+.baths::after,
+.area::after,
+.tax::after,
+.lot::after,
+.time::after,
+.data-address::after,
+.data-broker::after,
+.data-status::after,
+.data-beds::after,
+.data-baths::after,
+.data-area::after,
+.data-tax::after,
+.data-lot::after,
+.data-time::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    background-color: #ccc; /* Цвет тонкой серой полоски */
+    bottom: 0;
+    left: 100px;
+}
+
+
+.extra_info {
+	margin-top: 100px;
+}
+
+.btn.btn-primary {
+    display: block;
+    margin: 15px auto; /* auto для left и right, 15px сверху и снизу */
+    width: 150px;
+}
+
+
+.red-square {
+	display: inline-block;
+	width: 40px;
+	height: 45px;
+	margin-bottom: 10px;
+	background-color: red;
+	margin-left: -10px;
+	vertical-align: middle; 
+}

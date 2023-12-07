@@ -30,12 +30,15 @@ async function initAutocomplete() {
                             fullAddress = item.address.replace(new RegExp(item.hdpData.homeInfo.city, 'i'), '') + ', ' + item.hdpData.homeInfo.city;
                         }
 
-                        return fullAddress;
+                        return { label: fullAddress, value: fullAddress, zpid: (item.hdpData && item.hdpData.homeInfo && item.hdpData.homeInfo.zpid) ? item.hdpData.homeInfo.zpid : null };
                     });
 
                     response(addresses);
                 },
                 minLength: 2,
+                select: function(event, ui) {
+                    console.log('Selected zpid:', ui.item.zpid);
+                }
             });
         } else {
             console.error('Failed to fetch data:', response.status);

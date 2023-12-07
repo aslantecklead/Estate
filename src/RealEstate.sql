@@ -18,6 +18,13 @@ VALUES
 
 SELECT * FROM showingSchedule;
 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+FLUSH PRIVILEGES;
+
+SELECT user, host, plugin FROM mysql.user;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY '1234';
+
 CREATE TABLE departments (
     id_departments INT AUTO_INCREMENT PRIMARY KEY,
     name TEXT NOT NULL,

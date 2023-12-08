@@ -78,7 +78,7 @@ app.get('/estate/:zpid', async (req, res) => {
     const estateData = estateList.find((item) => item.zpid === zpid);
 
     if (estateData) {
-      res.json(estateData); // Отправка данных о недвижимости в качестве ответа
+      res.json(estateData); 
     } else {
       res.status(404).json({ message: 'Недвижимость не найдена' });
     }

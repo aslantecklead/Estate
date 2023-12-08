@@ -6,6 +6,10 @@
 	<title>Estate Review</title>
 	<link rel="stylesheet" href="/styles/estate_page.css">
 	<link rel='stylesheet' href='/bootstrap/scss/bootstrap.css'>
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=6aebb30f-4a1c-4d0e-993f-09356b52d525&lang=en_US"
+		type="text/javascript">
+		</script>
+	<script src='/scripts/Maps/estate_page_map.js'></script>
 </head>
 
 <body>
@@ -27,9 +31,12 @@
 				<p class="area">Area📐: <span class="data-area"></span></p>
 				<p class="tax">Tax Assessed Value💸: <span class="data-tax"></span></p>
 				<p class="lot">Lot Area Value💎: <span class="data-lot"></span></p>
-			</div>
 
+			</div>
 			<button id='save_pdf' class="btn btn-primary">Save as PDF 💾</button>
+			<div class="map-container">
+				<div id="map"></div>
+			</div>
 		</div>
 	</div>
 	<script src='/scripts/estate_page.js'></script>

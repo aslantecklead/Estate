@@ -191,3 +191,19 @@ button {
   }
 }
 
+.register_btn {
+  position: absolute;
+  z-index: 999;
+  margin-top: 650px;
+  margin-left: 820px;
+  z-index: 999;
+  width: 200px;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

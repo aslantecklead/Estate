@@ -1,14 +1,14 @@
-@font-face {
-	font-family: headlineFont;
-	src: url("/fonts/gilroy-semibold.ttf");
-}
+
 
 body,
 html {
 	height: 100%;
 	margin: 0;
 }
-
+@font-face {
+	font-family: headlineFont;
+	src: url("/fonts/gilroy-semibold.ttf");
+}
 .property-listing {
 	margin-top: 0.5%;
 	margin-left: 0.5%;

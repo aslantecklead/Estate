@@ -93,6 +93,7 @@ function init() {
                     }
                 }
             });
+            
             const closeBtn = document.getElementsByClassName('close')[0];
             closeBtn.onclick = function() {
                 const modal = document.getElementById('modal');

@@ -89,4 +89,12 @@ app.get('/estate/:zpid', async (req, res) => {
 });
 
 
+//logout 
+app.delete('/logout', (req, res) => {
+  const refreshToken = req.body.token;
+  const userId = req.body.userId; 
+  res.sendStatus(204); 
+});
+
+
 app.listen(3001);

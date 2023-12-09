@@ -24,6 +24,9 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/src/pages/index.html');
 });
 
+app.get('/register', (req, res) => {
+  res.sendFile(__dirname + '/src/pages/Registration.html');
+});
 
 app.get('/auth', (req, res) => {
   res.sendFile(__dirname + '/Auth.html');

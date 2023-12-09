@@ -166,10 +166,21 @@ SELECT * FROM deal;
 CREATE TABLE client (
     id_client INT AUTO_INCREMENT PRIMARY KEY,
     name TEXT,
+    firstName TEXT,
+    lastName TEXT,
+	nameOnCard TEXT DEFAULT NULL,
+    creditCardNumber TEXT DEFAULT NULL,
+    expiration TEXT DEFAULT NULL,
+    CVV TEXT DEFAULT NULL,
     email TEXT CHECK (email REGEXP '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'),
     password TEXT CHECK (LENGTH(password) >= 8 AND password REGEXP '^[a-zA-Z0-9]+$'), 
     phoneNumber TEXT,
     id_deal INT,
+    age INT,
+    passportSeries TEXT,
+    passportNumber TEXT,
+    city TEXT,
+    avatarURL TEXT DEFAULT NULL,
     FOREIGN KEY (id_deal) REFERENCES deal(id_deal)
 );
 

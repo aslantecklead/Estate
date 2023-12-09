@@ -12,7 +12,7 @@
 }
 
 .back {
-  background: url('/images/Authenticate.png') no-repeat no-repeat center center fixed;
+  background: url('/images/registration.png') no-repeat no-repeat center center fixed;
 	background-size: cover;
 }
 
@@ -44,20 +44,32 @@
   bottom: -80px;
 }
 
+form-container {
+  height: 100vh; 
+  overflow-y: auto; 
+}
+
 form {
-  height: 520px;
-  width: 400px;
+  width: 1000px;
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 50%;
+  margin-top: 45%;
   left: 50%;
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  padding: 50px 35px;
+  padding: 80px 50px;
 }
+
+
+.content {
+  height: calc(100vh - 40px); 
+  overflow-y: auto;
+  padding-bottom: 40px; 
+}
+
 
 form * {
   font-family: 'Poppins', sans-serif;
@@ -190,4 +202,66 @@ button {
   100% {
     transform: translateX(0);
   }
+}
+
+form .form-check-input {
+  transform: scale(0.4); 
+  margin-right: 0px;
+}
+
+form .btn-primary {
+  margin-top: 40px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease; 
+}
+
+form .btn-primary:hover {
+  background-color: #edecda; 
+  color: #080710; 
+}
+
+.register_btn {
+  margin-top: 10px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.register_btn:hover {
+  color: white; /* Цвет при наведении */
+  text-decoration: none; /* Убираем подчеркивание при наведении */
+}
+
+.form-control {
+  display: block;
+  height: 60px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.glass-input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07); /* Цвет фона инпута */
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
 }

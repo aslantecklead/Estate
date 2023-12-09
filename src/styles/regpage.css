@@ -45,7 +45,7 @@
 }
 
 form-container {
-  height: 100vh; 
+  height: 90vh; 
   overflow-y: auto; 
 }
 
@@ -62,7 +62,6 @@ form {
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 80px 50px;
 }
-
 
 .content {
   height: calc(100vh - 40px); 
@@ -157,7 +156,7 @@ button {
 .error-balloon {
   position: absolute;
   display: none;
-  background-color: rgba(255, 0, 0, 0.7);
+  background-color: red;
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
@@ -167,12 +166,13 @@ button {
   white-space: nowrap;
 }
 
+
 .error-balloon::before {
   content: "";
   position: absolute;
   border-style: solid;
   border-width: 5px 5px 0;
-  border-color: rgba(255, 0, 0, 0.7) transparent transparent;
+  border-color: red ;
   bottom: -5px;
   left: 10px;
 }
@@ -257,11 +257,55 @@ form .btn-primary:hover {
 .glass-input {
   display: block;
   height: 50px;
-  width: 100%;
+  width: calc(100% - 30px); /* Ширина инпута с учетом ширины span и отступа */
   background-color: rgba(255, 255, 255, 0.07); /* Цвет фона инпута */
   border-radius: 3px;
   padding: 0 10px;
   margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
+}
+.input-group-text {
+  margin-top: 8px;
+  height: 50px;
+}
+
+.wow {
+  margin-left: 50px; /* Отступ слева */
+  width: calc(100% - 80px); /* Ширина инпута 
+}
+
+.glass-input wow {
+  display: block;
+  height: 50px;
+  width: calc(100% - 30px); /* Ширина инпута с учетом ширины span и отступа 
+  background-color: rgba(255, 255, 255, 0.07); /* Цвет фона инпута */
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 10px; 
+}
+
+.input-group .input-group-text {
+  background-color: rgba(255, 255, 255, 0.07); /* Цвет фона span */
+  border-radius: 3px 0 0 3px; /* Закругленные углы слева для span */
+  border-right: none; /* Убираем правую границу для создания разделительной линии между span и инпутом */
+  color: white; /* Цвет текста внутри span */
+  border-color: transparent; /* Убираем обводку */
+}
+
+.form-select {
+  display: block;
+  height: 50px;
+  width: calc(100% - 30px); /* Ширина инпута с учетом ширины span и отступа */
+  background-color: rgba(255, 255, 255, 0.07); /* Цвет фона инпута */
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 10px;
+
 }

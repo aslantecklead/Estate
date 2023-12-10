@@ -26,3 +26,25 @@ Content-Type: application/json
 ###
 GET http://localhost:4000/current-user
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJpdmFuQGV4YW1wbGUuY29tIiwicGFzc3dvcmQiOiJzZWNyZXRQYXNzd29yZCIsImlhdCI6MTcwMTYyNDg2MywiZXhwIjoxNzAxNjI0OTIzfQ.S9NGs2X7tvhlAkAmGnj_LWGTO7yOczpGZCt2DWVNxsI
+
+###
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+  "name": "Иван",
+  "firstName": "Иван",
+  "lastName": "Иванов",
+  "email": "ivan@example.com",
+  "password": "securePassword123",
+  "phoneNumber": "1234567890",
+  "city": "Москва",
+  "age": 30,
+  "passportSeries": "AB",
+  "passportNumber": "123456",
+  "nameOnCard": "IVAN IVANOV",
+  "creditCardNumber": "1234567890123456",
+  "expiration": "12/24",
+  "CVV": "123",
+  "id_deal": 1
+}

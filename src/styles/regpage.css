@@ -166,7 +166,6 @@ button {
   white-space: nowrap;
 }
 
-
 .error-balloon::before {
   content: "";
   position: absolute;
@@ -289,18 +288,18 @@ form .btn-primary:hover {
 }
 
 .input-group .input-group-text {
-  background-color: rgba(255, 255, 255, 0.07); /* Цвет фона span */
-  border-radius: 3px 0 0 3px; /* Закругленные углы слева для span */
-  border-right: none; /* Убираем правую границу для создания разделительной линии между span и инпутом */
-  color: white; /* Цвет текста внутри span */
-  border-color: transparent; /* Убираем обводку */
+  background-color: rgba(255, 255, 255, 0.07); 
+  border-radius: 3px 0 0 3px; 
+  border-right: none; 
+  color: white;
+  border-color: transparent; 
 }
 
 .form-select {
   display: block;
   height: 50px;
-  width: calc(100% - 30px); /* Ширина инпута с учетом ширины span и отступа */
-  background-color: rgba(255, 255, 255, 0.07); /* Цвет фона инпута */
+  width: calc(100% - 30px); 
+  background-color: rgba(255, 255, 255, 0.07); 
   border-radius: 3px;
   padding: 0 10px;
   margin-top: 8px;
@@ -309,3 +308,9 @@ form .btn-primary:hover {
   margin-left: 10px;
 
 }
+
+.form-select option {
+  color: black;
+  background-color: lightgrey;
+}
+

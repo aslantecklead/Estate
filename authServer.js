@@ -102,4 +102,17 @@ app.get('/current-user', authenticateToken, (req, res) => {
   res.json({ username: req.user.name });
 });
 
+///
+app.post('/register', (req, res) => {
+  const userData = req.body; 
+  connection.query('INSERT INTO client SET ?', userData, (err, result) => {
+    if (err) {
+      console.error('Ошибка при сохранении данных пользователя:', err);
+      return res.status(500).json({ error: 'Ошибка при сохранении данных пользователя' });
+    }
+    res.status(201).json({ message: 'Пользователь успешно зарегистрирован' });
+  });
+});
+///
+
 app.listen(4000);

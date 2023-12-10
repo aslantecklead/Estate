@@ -174,7 +174,7 @@ CREATE TABLE client (
     CVV TEXT DEFAULT NULL,
     email TEXT CHECK (email REGEXP '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'),
     password TEXT CHECK (LENGTH(password) >= 8 AND password REGEXP '^[a-zA-Z0-9]+$'), 
-    phoneNumber TEXT,
+    phoneNumber TEXT,	
     id_deal INT,
     age INT,
     passportSeries TEXT,
@@ -187,7 +187,7 @@ CREATE TABLE client (
 INSERT INTO client (name, email, password, phoneNumber)
 VALUES ('Иван', 'ivan@example.com', '12121212121', '1234567890');
 
-SELECT * FROM client;
+SELECT * FROM client where id_client = 12;
 
 CREATE TABLE client_tokens (
     id_token INT AUTO_INCREMENT PRIMARY KEY,

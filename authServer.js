@@ -53,9 +53,9 @@ app.delete('/logout', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  const { id, email, password } = req.body;
+  const { email, password } = req.body;
   
-  connection.query('SELECT * FROM client WHERE email = ? AND password = ?', [email, password], (err, results) => {
+  connection.query('SELECT * FROM client WHERE email = ?', [email], (err, results) => {
     if (err) {
       console.error('Ошибка при поиске пользователя:', err);
       return res.sendStatus(500);
@@ -64,24 +64,34 @@ app.post('/login', (req, res) => {
       return res.status(401).json({ message: 'Неверный логин или пароль' });
     }
 
-    const user = {
-      id: results[0].id_client, 
-      email: email,
-      password: password
-    };
-
-    const accessToken = generateAccessToken(user);
-    const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-    
-    connection.query('UPDATE client_tokens SET refresh_token = ? WHERE id_client = ?', [refreshToken, results[0].id_client], (err) => {
+    const user = results[0]; 
+    bcrypt.compare(password, user.password, (err, passwordsMatch) => {
       if (err) {
-        console.error('Ошибка при обновлении refresh токена:', err);
+        console.error('Ошибка при сравнении паролей:', err);
         return res.sendStatus(500);
       }
-      res.json({ id: user.id, accessToken: accessToken, refreshToken: refreshToken });
+      if (!passwordsMatch) {
+        return res.status(401).json({ message: 'Неверный логин или пароль' });
+      }
+
+      const userData = {
+        id: user.id_client,
+        email: email,
+      };
+      const accessToken = generateAccessToken(userData);
+      const refreshToken = jwt.sign(userData, process.env.REFRESH_TOKEN_SECRET);
+      
+      connection.query('UPDATE client_tokens SET refresh_token = ? WHERE id_client = ?', [refreshToken, user.id_client], (err) => {
+        if (err) {
+          console.error('Ошибка при обновлении refresh токена:', err);
+          return res.sendStatus(500);
+        }
+        res.json({ id: userData.id, accessToken: accessToken, refreshToken: refreshToken });
+      });
     });
   });
 });
+
 
 function generateAccessToken(user){ 
   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1m'});
@@ -103,16 +113,55 @@ app.get('/current-user', authenticateToken, (req, res) => {
 });
 
 ///
+const bcrypt = require('bcrypt');
+const saltRounds = 10; 
+
 app.post('/register', (req, res) => {
-  const userData = req.body; 
-  connection.query('INSERT INTO client SET ?', userData, (err, result) => {
+  const userData = req.body;
+
+  bcrypt.hash(userData.password, saltRounds, (err, hash) => {
     if (err) {
-      console.error('Ошибка при сохранении данных пользователя:', err);
-      return res.status(500).json({ error: 'Ошибка при сохранении данных пользователя' });
+      console.error('Ошибка при хешировании пароля:', err);
+      return res.status(500).json({ error: 'Ошибка при регистрации пользователя' });
     }
-    res.status(201).json({ message: 'Пользователь успешно зарегистрирован' });
+
+    userData.password = hash;
+
+    const attributesToHash = [
+      'passportSeries',
+      'passportNumber',
+      'nameOnCard',
+      'creditCardNumber',
+      'expiration',
+      'CVV'
+    ];
+
+    const hashAttributes = () => {
+      const attribute = attributesToHash.shift();
+      if (!attribute) {
+        connection.query('INSERT INTO client SET ?', userData, (err, result) => {
+          if (err) {
+            console.error('Ошибка при сохранении данных пользователя:', err);
+            return res.status(500).json({ error: 'Ошибка при сохранении данных пользователя' });
+          }
+          res.status(201).json({ message: 'Пользователь успешно зарегистрирован' });
+        });
+      } else {
+        bcrypt.hash(userData[attribute], saltRounds, (err, hashedAttribute) => {
+          if (err) {
+            console.error(`Ошибка при хешировании ${attribute}:`, err);
+            return res.status(500).json({ error: `Ошибка при регистрации пользователя (${attribute})` });
+          }
+          userData[attribute] = hashedAttribute;
+          hashAttributes();
+        });
+      }
+    };
+
+    hashAttributes();
   });
 });
+
 ///
 
 app.listen(4000);

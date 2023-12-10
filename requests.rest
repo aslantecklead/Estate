@@ -19,9 +19,10 @@ POST http://localhost:4000/login
 Content-Type: application/json
 
 {
-  "email": "ivan@example.com",
-  "password": "secretPassword"
+  "email": "petr@example.com",
+  "password": "securePassword123"
 }
+
 
 ###
 GET http://localhost:4000/current-user
@@ -32,19 +33,19 @@ POST http://localhost:4000/register
 Content-Type: application/json
 
 {
-  "name": "Иван",
-  "firstName": "Иван",
-  "lastName": "Иванов",
-  "email": "ivan@example.com",
+  "name": "Петр",
+  "firstName": "Петр",
+  "lastName": "Петров",
+  "email": "petr@example.com",
   "password": "securePassword123",
-  "phoneNumber": "1234567890",
-  "city": "Москва",
-  "age": 30,
-  "passportSeries": "AB",
-  "passportNumber": "123456",
-  "nameOnCard": "IVAN IVANOV",
-  "creditCardNumber": "1234567890123456",
-  "expiration": "12/24",
-  "CVV": "123",
+  "phoneNumber": "9876543210",
+  "city": "Санкт-Петербург",
+  "age": 25,
+  "passportSeries": "CD",
+  "passportNumber": "654321",
+  "nameOnCard": "PETR PETROV",
+  "creditCardNumber": "9876543210987654",
+  "expiration": "09/23",
+  "CVV": "456",
   "id_deal": 1
 }

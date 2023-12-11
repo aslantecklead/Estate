@@ -24,6 +24,11 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/src/pages/index.html');
 });
 
+app.get('/ClientProperties', (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.sendFile(__dirname + '/src/pages/ClientProperties.html');
+});
+
 app.get('/register', (req, res) => {
   res.sendFile(__dirname + '/src/pages/Registration.html');
 });
@@ -33,7 +38,7 @@ app.get('/auth', (req, res) => {
 });
 
 app.get('/statistic', (req, res) => {
-  res.sendFile(__dirname + '/Auth.html');
+  res.sendFile(__dirname + '/pages/StatisticPage.html');
 });
 
 let dataset;

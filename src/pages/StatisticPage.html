@@ -4,12 +4,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Urban Hunter</title>
+	<title>Statistic</title>
 
 	<link rel="icon" type="image/png" href="/images/house.png" />
 	<link rel='stylesheet' href='/bootstrap/scss/bootstrap.css'>
 	<link rel="stylesheet" href="/styles/indexPage.css">
-	<link rel="stylesheet" href="/styles/main_section.css">
+	<link rel="stylesheet" href="/styles/statistic.css">
 	<link rel="stylesheet" href="/styles/secondPage.css">
 </head>
 
@@ -17,11 +17,13 @@
 	<main>
 		<div class='main_section'>
 			<hr class='upper_line'>
-			<div class='logo'></div>
+			<div class='logo'>
+				<a href="/"></a>
+			</div>
 			<div class='d-flex justify-content-between align-items-center'>
 				<div class='pages'>
-					<h1><a href="/">State statistic</a></h1>
-					<h1><a href="/">Client Properties</a></h1>
+					<h1><a href="/pages/StatisticPage.html">State statistic</a></h1>
+					<h1><a href="/pages/ClientProperties.html">Client Properties</a></h1>
 					<h1><a href="/">Agent</a></h1>
 					<h1><a href="/">Blog</a></h1>
 
@@ -53,35 +55,20 @@
 				</div>
 
 			</div>
-
-			<h1 class='headline'>Find Real Estate and Get Your
-				<br>Dream Space
-			</h1>
-
-			<h1 id="currentUser" class='headline_username'>Authenticate to buy some properties</h1>
-
-			<div class='search_main'>
-				<div class='search_content'>
-
-					<div class='onMap_Search'>
-						<a class='search_btn' href='/pages/SecondPage.html'>
-
-						</a>
-					</div>
-
-					<hr class='line'>
-					<input type="text" id="streetInput" class="search_input" placeholder="Search for dream estate ...">
-					<a id='search_btn_press' class='search_btn' href='/pages/EstatePage.html'>
-						Search
-					</a>
+			<div class='filter-options'>
+				<button id="averagePrice">Average Price</button>
+				<button id="priceDistribution">Price Distribution</button>
+				<button id="topProperties">Top 10 Properties</button>
+			</div>
+			<div class='frame'>
+				<div id="statisticsDisplay">
+					<canvas id="priceHistogram"></canvas>
 				</div>
 			</div>
 
 		</div>
 	</main>
-
 	<section>
-
 	</section>
 	<footer>
 		<footer class="pt-3 mt-4 text-body-secondary border-top">
@@ -153,6 +140,8 @@
 		</div>
 	</footer>
 
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -165,6 +154,7 @@
 	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 
 	<script src='/scripts/userDataTemp.js'></script>
+	<script src='/scripts/statistic/statistic.js'></script>
 
 </body>
 

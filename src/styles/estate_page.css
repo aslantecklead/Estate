@@ -156,7 +156,7 @@ html {
 .btn.btn-primary {
     display: block;
     margin: 15px auto; /* auto для left и right, 15px сверху и снизу */
-    width: 150px;
+    width: 180px;	
 }
 
 .map-container {

@@ -32,6 +32,10 @@ app.get('/auth', (req, res) => {
   res.sendFile(__dirname + '/Auth.html');
 });
 
+app.get('/statistic', (req, res) => {
+  res.sendFile(__dirname + '/Auth.html');
+});
+
 let dataset;
 
 function getDataset() {

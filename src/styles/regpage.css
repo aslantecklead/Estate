@@ -45,7 +45,7 @@
 }
 
 form-container {
-  height: 90vh; 
+  height: 100vh; 
   overflow-y: auto; 
 }
 
@@ -54,7 +54,7 @@ form {
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
   transform: translate(-50%, -50%);
-  margin-top: 45%;
+  margin-top: 75%;
   left: 50%;
   border-radius: 10px;
   backdrop-filter: blur(10px);
@@ -309,8 +309,15 @@ form .btn-primary:hover {
 
 }
 
-.form-select option {
-  color: black;
-  background-color: lightgrey;
+.series {
+  margin-left: 15px;
 }
 
+.col-md-6 .glass-input {
+  width: 200px; /* Ширина поля для серии */
+}
+
+.col-md-6:last-child .glass-input {
+  width: 400px; 
+  margin-right: -200px;
+}

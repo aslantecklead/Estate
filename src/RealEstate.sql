@@ -187,7 +187,7 @@ CREATE TABLE client (
 INSERT INTO client (name, email, password, phoneNumber)
 VALUES ('Иван', 'ivan@example.com', '12121212121', '1234567890');
 
-SELECT * FROM client where id_client = 12;
+SELECT * FROM client;
 
 CREATE TABLE client_tokens (
     id_token INT AUTO_INCREMENT PRIMARY KEY,

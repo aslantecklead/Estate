@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Statistic</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 	<link rel="icon" type="image/png" href="/images/house.png" />
 	<link rel='stylesheet' href='/bootstrap/scss/bootstrap.css'>
@@ -23,9 +24,9 @@
 			<div class='d-flex justify-content-between align-items-center'>
 				<div class='pages'>
 					<h1><a href="/pages/StatisticPage.html">State statistic</a></h1>
-					<h1><a href="/">Client Properties</a></h1>
-					<h1><a href="/">Agent</a></h1>
-					<h1><a href="/">Blog</a></h1>
+					<h1><a href="/pages/ClientProperties.html">Client Properties</a></h1>
+					<!-- <h1><a href="/">Agent</a></h1>
+					<h1><a href="/">Blog</a></h1> -->
 
 					<div class='signIn'>
 						<div class='text-end'>
@@ -56,7 +57,16 @@
 
 			</div>
 
-
+			<div class='filter-options'>
+				<button id="averagePrice">Average Price</button>
+				<!-- <button id="priceDistribution">Price Distribution</button>
+				<button id="topProperties">Top 10 Properties</button> -->
+			</div>
+			<div class='frame'>
+				<div id="statisticsDisplay">
+					<canvas id="priceHistogram"></canvas>
+				</div>
+			</div>
 
 		</div>
 	</main>
@@ -146,6 +156,7 @@
 	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 
 	<script src='/scripts/userDataTemp.js'></script>
+	<script src='/scripts/statistic/client_stat.js'></script>
 
 </body>
 

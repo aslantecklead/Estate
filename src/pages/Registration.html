@@ -43,17 +43,52 @@
 								</div>
 							</div>
 
+							<div class='series'>
+								<div class="row gy-3">
+									<div class="col-md-6">
+										<label for="cc-name" class="form-label">Passport series</label>
+										<input type="text" class="glass-input" id="passportSeries" placeholder="" required="">
+										<!-- <small class="text-body-secondary">P</small> -->
+										<div class="invalid-feedback">
+											Passport series is required
+										</div>
+										<span class="error-balloon" id="ccNameError">Passport series is required.</span>
+									</div>
+
+									<div class="col-md-6">
+										<label for="cc-number" class="form-label">Passport number</label>
+										<input type="text" class="glass-input" id="passportNumber" placeholder="" required="">
+										<div class="invalid-feedback">
+											Passport number is required
+										</div>
+										<span class="error-balloon" id="ccNumberError">Passport is required.</span>
+									</div>
+								</div>
+							</div>
+
 							<div class="col-12">
 								<label for="username" class="form-label">Username</label>
 								<div class="input-group has-validation">
 									<span class="input-group-text">@</span>
-									<input type="text" class="glass-input wow" id="username" placeholder="Username" required="">
+									<input type="text" class="glass-input wow" id="name" placeholder="Username" required="">
 									<div class="invalid-feedback">
 										Your username is required.
 									</div>
 								</div>
 								<span class="error-balloon" id="usernameError">Your username is required.</span>
 							</div>
+
+							<div class="col-md-5">
+								<label for="country" class="form-label">Age</label>
+								<select class="form-select" id="age" required="">
+									<option value="">Select one</option>
+								</select>
+								<div class="invalid-feedback">
+									Please enter your age.
+								</div>
+								<span class="error-balloon" id="countryError">Please select a valid age.</span>
+							</div>
+
 
 							<div class="col-12">
 								<label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
@@ -76,7 +111,7 @@
 
 							<div class="col-12">
 								<label for="address" class="form-label">Address</label>
-								<input type="text" class="glass-input" id="address" placeholder="1234 Main St" required="">
+								<input type="text" class="glass-input" id="9876543210" placeholder="9876543210" required="">
 								<div class="invalid-feedback">
 									Please enter your shipping address.
 								</div>
@@ -91,9 +126,8 @@
 
 							<div class="col-md-5">
 								<label for="country" class="form-label">City</label>
-								<select class="form-select" id="country" required="">
+								<select class="form-select" id="city" required="">
 									<option value="">Choose...</option>
-									<option>United States</option>
 								</select>
 								<div class="invalid-feedback">
 									Please select a valid country.
@@ -123,7 +157,7 @@
 						<div class="row gy-3">
 							<div class="col-md-6">
 								<label for="cc-name" class="form-label">Name on card</label>
-								<input type="text" class="glass-input" id="cc-name" placeholder="" required="">
+								<input type="text" class="glass-input" id="nameOnCard" placeholder="" required="">
 								<small class="text-body-secondary">Full name as displayed on card</small>
 								<div class="invalid-feedback">
 									Name on card is required
@@ -133,7 +167,7 @@
 
 							<div class="col-md-6">
 								<label for="cc-number" class="form-label">Credit card number</label>
-								<input type="text" class="glass-input" id="cc-number" placeholder="" required="">
+								<input type="text" class="glass-input" id="creditCardNumber" placeholder="" required="">
 								<div class="invalid-feedback">
 									Credit card number is required
 								</div>
@@ -142,7 +176,7 @@
 
 							<div class="col-md-3">
 								<label for="cc-expiration" class="form-label">Expiration</label>
-								<input type="text" class="glass-input" id="cc-expiration" placeholder="" required="">
+								<input type="text" class="glass-input" id="expiration" placeholder="" required="">
 								<div class="invalid-feedback">
 									Expiration date required
 								</div>
@@ -151,7 +185,7 @@
 
 							<div class="col-md-3">
 								<label for="cc-cvv" class="form-label">CVV</label>
-								<input type="text" class="glass-input" id="cc-cvv" placeholder="" required="">
+								<input type="text" class="glass-input" id="CVV" placeholder="" required="">
 								<div class="invalid-feedback">
 									Security code required
 								</div>

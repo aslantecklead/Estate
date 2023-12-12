@@ -71,7 +71,7 @@
 
 .pages h1 a {
   text-decoration: none; 
-	color: #fff;/* Remove underlines from anchor tags */
+	color: #111;/* Remove underlines from anchor tags */
 }
 
 .pages h1::before {
@@ -81,7 +81,7 @@
   left: -10px;
   width: 100px;
   height: 2px;
-  background-color: #fff;
+  background-color: #111;
   transform: scaleX(0);
   transform-origin: center bottom;
   transition: transform 0.3s;
@@ -103,8 +103,8 @@
 .login input[type=button] {
 	width: 150px;
 	height: 35px;
-	background: #fff;
-	border: 1px solid #fff;
+	background: #111;
+	border: 1px solid #111;
 	cursor: pointer;
 	border-radius: 2px;
 	color: #a18d6c;

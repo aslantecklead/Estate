@@ -82,4 +82,8 @@ document.getElementById('averagePrice').addEventListener('click', () => displayS
 document.getElementById('priceDistribution').addEventListener('click', () => displayStatistics('priceDistribution'));
 document.getElementById('topProperties').addEventListener('click', () => displayStatistics('topProperties'));
 
-displayStatistics('averagePrice');
+document.addEventListener('DOMContentLoaded', () => {
+  displayStatistics('averagePrice');
+  displayStatistics('priceDistribution');
+  displayStatistics('topProperties');
+});

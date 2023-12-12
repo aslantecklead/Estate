@@ -57,3 +57,50 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Word file created successfully');
   }  
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const toExcelBtn = document.getElementById('to_excel');
+  toExcelBtn.addEventListener('click', async () => {
+    try {
+      const selectedZpid = localStorage.getItem('selectedZpid');
+      if (!selectedZpid) {
+        console.error('No selectedZpid found');
+        return;
+      }
+
+      const response = await fetch(`http://localhost:3001/estate/${selectedZpid}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data: ${response.status}`);
+      }
+
+      const estateData = await response.json();
+      if (!estateData) {
+        console.error('No data received from the server');
+        return;
+      }
+
+      console.log('Received data:', estateData);
+
+      exportToExcel(estateData);
+    } catch (error) {
+      console.error('Failed to export to Excel:', error);
+    }
+  });
+
+  function exportToExcel(data) {
+    const csvContent = `
+      Price, Bedrooms, Bathrooms, Address, City, State, Area, Status, Zip Code, Tax Assessed Value, Rent Estimate, Days on Urban Hunter
+      ${data.price}, ${data.beds}, ${data.baths}, ${data.hdpData.homeInfo.streetAddress}, ${data.hdpData.homeInfo.city}, ${data.hdpData.homeInfo.state}, ${data.hdpData.homeInfo.livingArea}, ${data.hdpData.homeInfo.homeStatus}, ${data.hdpData.homeInfo.zipcode}, ${data.hdpData.homeInfo.taxAssessedValue}, ${data.hdpData.homeInfo.rentZestimate}, ${data.hdpData.homeInfo.daysOnZillow}
+    `;
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = URL.createObjectURL(blob);
+    downloadLink.download = `URBAN_HUNTER_estate№${data.zpid}.csv`;
+    downloadLink.click();
+    URL.revokeObjectURL(downloadLink.href);
+
+    console.log('Excel file created successfully');
+  }
+});

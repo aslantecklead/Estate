@@ -339,3 +339,26 @@
   cursor: pointer;
 }
 
+.btn-group {
+  margin-top: 10px;
+  margin-right: 40px;
+  text-align: center;
+}
+
+.sort .btn {
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 6px 16px;
+  margin-bottom: 10px;
+}
+
+.sort .btn-primary {
+  background-color: rgba(88, 218, 249, 0.7035189075630253);
+  border-color: rgba(88, 218, 249, 0.7035189075630253);
+  transition: background-color 0.3s, border-color 0.3s; /* добавленный transition */
+}
+
+.sort .btn-primary:hover {
+  background-color: rgba(88, 218, 249, 1);
+  border-color: rgba(88, 218, 249, 1);
+}

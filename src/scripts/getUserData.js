@@ -24,7 +24,12 @@ async function getUserData() {
 }
 
 function getAccessToken() {
-	return localStorage.getItem('accessToken');
+	if ('accessToken' in localStorage) {
+			return localStorage.getItem('accessToken');
+	} else {
+			return null;
+	}
 }
+
 
 getUserData();

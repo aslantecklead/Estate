@@ -29,6 +29,7 @@ function init() {
     let estateData = []; // Хранение данных о недвижимости
 
     async function loadDataFromServer() {
+        
         try {
             const response = await fetch('http://localhost:3001/estatelist');
             if (!response.ok) {
@@ -87,8 +88,13 @@ function init() {
                     if (!isNaN(index) && estateData[index]) {
                         const modal = document.getElementById('modal');
                         const modalContent = document.getElementById('modal-content');
-                        modalContent.innerHTML = JSON.stringify(estateData[index]); 
-            
+                        modalContent.innerHTML = `
+                        <img src="${estateData[index].imgSrc}" class="modal-property-image"><br>
+                        <p>Address: ${estateData[index].address}</p>
+                        <p>Beds: ${estateData[index].beds}</p>
+                        <p>Baths: ${estateData[index].baths}</p>
+                        <!-- Другие данные -->
+                    `;                        console.log(JSON.stringify(estateData[index]));
                         modal.style.display = 'block'; 
                     }
                 }

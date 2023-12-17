@@ -41,6 +41,14 @@ app.get('/statistic', (req, res) => {
   res.sendFile(__dirname + '/pages/StatisticPage.html');
 });
 
+app.get('/current', (req, res) => {
+  res.sendFile(__dirname + '/pages/StatisticPage.html');
+});
+
+app.get('/admin_panel', (req, res) => {
+  res.sendFile(__dirname + '/pages/admin/admin_panel.html');
+});
+
 let dataset;
 
 function getDataset() {

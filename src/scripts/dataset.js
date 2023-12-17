@@ -17,13 +17,7 @@ async function fetchData() {
 
 			const mapResults = data.cat1.searchResults.mapResults;
 
-			// for (let key in mapResults) {
-			// 		if (Object.prototype.hasOwnProperty.call(mapResults, key)) {
-			// 				console.log(key, mapResults[key]);
-			// 		}
-			// }
-
-			return mapResults; // Return the mapResults
+			return mapResults; 
 
 	} catch (error) {
 			console.error('Произошла ошибка:', error);
@@ -62,3 +56,4 @@ window.addEventListener('load', async () => {
 
 
 export { fetchData, sendDataToServer }
+

@@ -52,9 +52,16 @@
 
 		</div>
 		<div class='hello'>
-			<p class='text'>Real Estate & Homes For Sale</p>
-
+			<div class="d-flex justify-content-between align-items-center w-100">
+				<p class='text mb-0'>Real Estate & Homes For Sale</p>
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary" id="sortByPrice">By price</button>
+					<button type="button" class="btn btn-primary" id="sortByArea">By area</button>
+				</div>
+			</div>
 		</div>
+
+
 		<div class="row" id="cardContainer">
 
 		</div>
@@ -80,6 +87,7 @@
 	</footer>
 
 	<script src='/scripts/card_generation.js'></script>
+	<script src='/scripts/pagination.js'></script>
 </body>
 
 </html>

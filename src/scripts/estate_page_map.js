@@ -1,5 +1,3 @@
-
-
 function init() {
 	var californiaBounds = [
 		[32.512499, -124.482003],

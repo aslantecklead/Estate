@@ -105,67 +105,61 @@
 }
 
 .card-image {
-    background-color: #55595c;
-    height: 65%;
-    width: 100%;
-    position: absolute;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    border-radius: 10px;
-    
+  background-color: #55595c;
+  height: 65%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .card-img {
-    object-fit: cover;
-    max-height: 100%;
-    max-width: 100%;
-    //height: auto;
+  object-fit: cover;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .cardData {
-    max-height: 50px;
-    max-width: 100%;
+  max-height: 50px;
+  max-width: 100%;
 }
 
 .text-container {
-    max-height: 50px;
-    overflow: hidden;
+  max-height: 50px;
+  overflow: hidden;
 }
 
 .card-body {
-    margin-top: 125px;
-    min-height: 50px; 
-    z-index: 1;
+  margin-top: 125px;
+  min-height: 50px;
+  z-index: 1;
 }
 
-.price { 
-    font-family: poppinsBold;
-    color: rgb(42, 42, 51);
-    margin-top: 8px;
-    font-size: 18px;
+.price {
+  font-family: poppinsBold;
+  color: rgb(42, 42, 51);
+  margin-top: 8px;
+  font-size: 18px;
 }
 
 .details {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.slash {
-    margin: 0 5px;
-}
-
-.name,
 .slash,
+.name,
 .broker_name {
-    font-size: 13px;
-    margin: 0;
+  font-size: 13px;
+  margin: 0;
 }
-
 
 .slash {
-    margin: 0 5px;
+  margin: 0 5px;
 }
+
 
 .hello {
     

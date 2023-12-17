@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const estateData = await response.json();
-    if (!estateData) {
+    if (!estateData) {  
       console.error('No data received from the server');
       return;
     }

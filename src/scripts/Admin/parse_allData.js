@@ -14,13 +14,19 @@ async function fetchDataAndPopulateTable() {
 					const newImage = document.createElement('img');
 					newImage.src = value;
 					newImage.alt = 'Property Image';
-					newImage.width = 100; // Установите размер изображения по вашему усмотрению
+					newImage.width = 250;
 					newCell.appendChild(newImage);
 				} else {
 					newCell.textContent = value;
 				}
 				newRow.appendChild(newCell);
 			});
+
+			newRow.addEventListener('click', () => {
+				localStorage.setItem('selectedRowId', row.id_offer);
+				console.log('ID записи:', row.id_offer);
+			});
+
 			tableBody.appendChild(newRow);
 		});
 	} catch (error) {

@@ -121,5 +121,43 @@ app.get('/propertyData', (req, res) => {
   });
 });
 
+app.post('/createBackup', (req, res) => {
+  try {
+    const fileName = `${process.env.DB_NAME}_${moment().format('YYYY_MM_DD')}.sql`;
+    const backupPath = `/Path/You/Want/To/Save/${fileName}`; // Путь, куда сохранить бэкап
 
+    const wstream = fs.createWriteStream(backupPath);
+    console.log('---------------------');
+    console.log('Running Database Backup Job');
+
+    const mysqldump = spawn('mysqldump', [
+      '-u',
+      process.env.DB_USER,
+      `-p${process.env.DB_PASSWORD}`,
+      process.env.DB_NAME,
+    ]);
+
+    mysqldump.stdout.pipe(wstream);
+
+    mysqldump.on('exit', (code) => {
+      if (code === 0) {
+        console.log('DB Backup Completed!');
+        res.download(backupPath, fileName, (err) => {
+          if (err) {
+            console.error('Ошибка при отправке файла бэкапа:', err);
+            res.status(500).send('Ошибка при отправке файла бэкапа');
+          } else {
+            console.log('Файл бэкапа успешно отправлен клиенту');
+          }
+        });
+      } else {
+        console.error('Произошла ошибка при создании бэкапа');
+        res.status(500).send('Произошла ошибка при создании бэкапа');
+      }
+    });
+  } catch (error) {
+    console.error('Ошибка при создании бэкапа:', error);
+    res.status(500).send('Ошибка при создании бэкапа');
+  }
+});
 app.listen(3001);

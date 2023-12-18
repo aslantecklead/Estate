@@ -1,0 +1,89 @@
+@font-face {
+	font-family: headlineFont;
+	src: url("/fonts/gilroy-semibold.ttf");
+}
+
+body {
+	font-family: headlineFont;
+}
+
+.table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+	background-color: transparent;
+	border-collapse: collapse;
+}
+
+.table th,
+.table td {
+	padding: 0.75rem;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody+tbody {
+	border-top: 2px solid #dee2e6;
+}.table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+	background-color: transparent;
+	border-collapse: collapse;
+}
+
+.table th,
+.table td {
+	padding: 0.75rem;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody+tbody {
+	border-top: 2px solid #dee2e6;
+}
+
+.table-full-width {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+	background-color: transparent;
+	border-collapse: collapse;
+}
+
+.table-full-width th,
+.table-full-width td {
+	padding: 0.75rem;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+}
+
+.table-full-width thead th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #dee2e6;
+}
+
+.table-full-width tbody+tbody {
+	border-top: 2px solid #dee2e6;
+}
+
+.row {
+	text-align: center;
+	width: 97%;
+	margin: 0 auto; 
+}
+
+
+.all {
+	margin-left: 30px;
+}

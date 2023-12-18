@@ -74,20 +74,25 @@ app.post('/login', (req, res) => {
         return res.status(401).json({ message: 'Неверный логин или пароль' });
       }
 
-      const userData = {
-        id: user.id_client,
-        email: email,
-      };
-      const accessToken = generateAccessToken(userData);
-      const refreshToken = jwt.sign(userData, process.env.REFRESH_TOKEN_SECRET);
-      
-      connection.query('UPDATE client_tokens SET refresh_token = ? WHERE id_client = ?', [refreshToken, user.id_client], (err) => {
-        if (err) {
-          console.error('Ошибка при обновлении refresh токена:', err);
-          return res.sendStatus(500);
-        }
-        res.json({ id: userData.id, accessToken: accessToken, refreshToken: refreshToken });
-      });
+      if (user.id_role === 1) { 
+        const userData = {
+          id: user.id_client,
+          email: email,
+          role: 'admin'
+        };
+        const accessToken = generateAccessToken(userData);
+        const refreshToken = jwt.sign(userData, process.env.REFRESH_TOKEN_SECRET);
+        
+        connection.query('UPDATE client_tokens SET refresh_token = ? WHERE id_client = ?', [refreshToken, user.id_client], (err) => {
+          if (err) {
+            console.error('Ошибка при обновлении refresh токена:', err);
+            return res.sendStatus(500);
+          }
+          res.json({ id: userData.id, accessToken: accessToken, refreshToken: refreshToken });
+        });
+      } else {
+        return res.status(403).json({ message: 'У вас нет прав доступа' });
+      }
     });
   });
 });
@@ -100,12 +105,19 @@ function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
   if (token == null) return res.sendStatus(401);
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decodedToken) => {
     if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
+
+    const { role } = decodedToken;
+    if (role === 'admin') {
+      req.user = decodedToken;
+      next();
+    } else {
+      return res.status(403).json({ message: 'У вас нет прав доступа' });
+    }
   });
 }
+
 
 app.get('/current-user', authenticateToken, (req, res) => {
   res.json({ username: req.user.name });
@@ -161,6 +173,13 @@ app.post('/register', (req, res) => {
   });
 });
 
-///
+/// roles
+app.get('/pages/admin/admin_panel.html', authenticateToken, (req, res) => {
+  if (req.user && req.user.role === 'admin') {
+    res.sendFile(__dirname + '/pages/admin/admin_panel.html');
+  } else {
+    res.status(403).json({ message: 'Доступ запрещен. Этот маршрут только для администраторов' });
+  }
+});
 
 app.listen(4000);

@@ -44,9 +44,6 @@ app.get('/current', (req, res) => {
   res.sendFile(__dirname + '/pages/StatisticPage.html');
 });
 
-app.get('/admin_panel', (req, res) => {
-  res.sendFile(__dirname + '/pages/admin/admin_panel.html');
-});
 
 let dataset;
 
@@ -111,6 +108,17 @@ app.delete('/logout', (req, res) => {
   const refreshToken = req.body.token;
   const userId = req.body.userId; 
   res.sendStatus(204); 
+});
+// Admin 
+app.get('/propertyData', (req, res) => {
+  connection.query('SELECT * FROM AllPropertyData', (error, results, fields) => {
+    if (error) {
+      console.error('Ошибка при получении данных:', error);
+      res.status(500).json({ error: 'Ошибка при получении данных' });
+      return;
+    }
+    res.json(results);
+  });
 });
 
 

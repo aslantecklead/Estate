@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin panel</title>
+	<link rel='stylesheet' href='/bootstrap/scss/bootstrap.css'>
+	<link rel='stylesheet' href='/styles/admin/admin_page.css'>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">[URBAN_HUNTER]</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Main</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Users</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Settings</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Exit</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col-lg-3">
+				<ul class="list-group">
+					<li class="list-group-item">Dashboard</li>
+					<li class="list-group-item">Pages</li>
+
+				</ul>
+			</div>
+			<div class="col-lg-9">
+				<h1>Administrator page</h1>
+				<p>Here you can edit some important information.</p>
+			</div>
+		</div>
+	</div>
+
+	<h1 class='all'>All Property Data</h1>
+	<div class="row">
+		<div class="col-lg-12">
+			<!-- <h1>All Property Data</h1> -->
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID Offer</th>
+							<th>Offer Description</th>
+							<th>Offer Price</th>
+							<th>Agent Name</th>
+							<th>Estate Address</th>
+							<th>Estate Beds</th>
+							<th>Estate Baths</th>
+							<th>Estate Price</th>
+							<th>Broker Name</th>
+							<th>Image URL</th>
+							<th>Latitude</th>
+							<th>Longitude</th>
+							<th>Estate Area</th>
+							<th>Deal Date</th>
+							<th>Client Name</th>
+							<th>Client Email</th>
+							<th>Client Phone Number</th>
+							<th>Showing Date</th>
+							<th>Showing Client Name</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/scripts/Admin/admin.js"></script>
+	<script>
+		// Код для запроса данных и заполнения таблицы
+	</script>
+
+</body>
+
+</html>

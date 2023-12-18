@@ -47,7 +47,7 @@ CREATE PROCEDURE InsertAllData(
     in_estate_address TEXT,
     in_beds INT,
     in_baths INT,
-    in_estate_price VARCHAR(50),
+    in_estate_price VARCHAR(50),	
     in_broker_name VARCHAR(100),
     in_image_url VARCHAR(1000),
     in_latitude VARCHAR(50),
@@ -89,6 +89,8 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
 
 CALL InsertAllData(
     'Beautiful condo in the city center',
@@ -138,3 +140,4 @@ END //
 
 DELIMITER ;
 CALL GetLatestPropertyData();
+

@@ -299,15 +299,20 @@ form .btn-primary:hover {
   display: block;
   height: 50px;
   width: calc(100% - 30px); 
-  background-color: rgba(255, 255, 255, 0.07); 
+  background-color: rgba(150, 150, 150, 0.5); 
   border-radius: 3px;
   padding: 0 10px;
   margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
   margin-left: 10px;
-
+  color: black !important; 
 }
+
+#city option {
+  color: black; 
+}
+
 
 .series {
   margin-left: 15px;

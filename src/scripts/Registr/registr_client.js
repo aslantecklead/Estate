@@ -4,14 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	form.addEventListener('submit', async (event) => {
 			event.preventDefault();
 
-			const formData = new FormData(form);	
+			const formData = new FormData(form);
 			const userData = {};
 			formData.forEach((value, key) => {
 					userData[key] = value;
 			});
 
+			console.log(userData); 
+
 			try {
-					const response = await fetch('http://localhost:4000/register', {	
+					const response = await fetch('http://localhost:4000/register', {
 							method: 'POST',
 							headers: {
 									'Content-Type': 'application/json'
@@ -20,12 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 					});
 
 					if (!response.ok) {
-							throw new Error('Registration failed');	
+							throw new Error('Registration failed');
 					}
 
 					const data = await response.json();
 
-					window.location.href = '/'; 
+					window.location.href = '/';
 			} catch (error) {
 					console.error('Registration error:', error);
 			}

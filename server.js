@@ -13,7 +13,6 @@ const connection = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME
 });
-// app.use(bodyParser.json());
 
 app.use(express.json());
 

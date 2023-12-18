@@ -31,7 +31,8 @@
 						<div class="row g-3">
 							<div class="col-sm-6">
 								<label for="firstName" class="form-label">First name</label>
-								<input type="text" class="glass-input" id="firstName" placeholder="" value="" required="">
+								<input type="text" class="glass-input" id="firstName" name="firstName" placeholder="" value=""
+									required="">
 								<div class="invalid-feedback">
 									Valid first name is required.
 								</div>
@@ -39,7 +40,8 @@
 
 							<div class="col-sm-6">
 								<label for="lastName" class="form-label">Last name</label>
-								<input type="text" class="glass-input" id="lastName" placeholder="" value="" required="">
+								<input type="text" class="glass-input" id="lastName" name="lastName" placeholder="" value=""
+									required="">
 								<div class="invalid-feedback">
 									Valid last name is required.
 								</div>
@@ -49,8 +51,8 @@
 								<div class="row gy-3">
 									<div class="col-md-6">
 										<label for="cc-name" class="form-label">Passport series</label>
-										<input type="text" class="glass-input" id="passportSeries" placeholder="" required="">
-										<!-- <small class="text-body-secondary">P</small> -->
+										<input type="text" class="glass-input" id="passportSeries" name="passportSeries" placeholder=""
+											required="">
 										<div class="invalid-feedback">
 											Passport series is required
 										</div>
@@ -59,7 +61,8 @@
 
 									<div class="col-md-6">
 										<label for="cc-number" class="form-label">Passport number</label>
-										<input type="text" class="glass-input" id="passportNumber" placeholder="" required="">
+										<input type="text" class="glass-input" id="passportNumber" name="passportNumber" placeholder=""
+											required="">
 										<div class="invalid-feedback">
 											Passport number is required
 										</div>
@@ -69,10 +72,10 @@
 							</div>
 
 							<div class="col-12">
-								<label for="username" class="form-label">Username</label>
+								<label for="Username" class="form-label">Username</label>
 								<div class="input-group has-validation">
 									<span class="input-group-text">@</span>
-									<input type="text" class="glass-input wow" id="name" placeholder="Username" required="">
+									<input type="text" class="glass-input wow" id="name" name="name" placeholder="Username" required="">
 									<div class="invalid-feedback">
 										Your username is required.
 									</div>
@@ -82,9 +85,8 @@
 
 							<div class="col-md-5">
 								<label for="country" class="form-label">Age</label>
-								<select class="form-select" id="age" required="">
-									<option value="">Select one</option>
-								</select>
+								<input class="form-select" id="age" name="age" required="">
+								</input>
 								<div class="invalid-feedback">
 									Please enter your age.
 								</div>
@@ -94,7 +96,7 @@
 
 							<div class="col-12">
 								<label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
-								<input type="email" class="glass-input" id="email" placeholder="you@example.com">
+								<input type="email" class="glass-input" id="email" name="email" placeholder="you@example.com">
 								<div class="invalid-feedback">
 									Please enter a valid email address for shipping updates.
 								</div>
@@ -104,7 +106,8 @@
 
 							<div class="col-12">
 								<label for="password" class="form-label">Password</label>
-								<input type="password" class="glass-input" id="password" placeholder="Your password" required="">
+								<input type="password" class="glass-input" id="password" name="password" placeholder="Your password"
+									required="">
 								<div class="invalid-feedback">
 									Your password is required.
 								</div>
@@ -113,7 +116,8 @@
 
 							<div class="col-12">
 								<label for="address" class="form-label">Address</label>
-								<input type="text" class="glass-input" id="9876543210" placeholder="9876543210" required="">
+								<input type="text" class="glass-input" id="9876543210" name="phoneNumber" placeholder="9876543210"
+									required="">
 								<div class="invalid-feedback">
 									Please enter your shipping address.
 								</div>
@@ -128,7 +132,7 @@
 
 							<div class="col-md-5">
 								<label for="country" class="form-label">City</label>
-								<select class="form-select" id="city" required="">
+								<select class="form-select" id="city" name="city" required="">
 									<option value="">Choose...</option>
 								</select>
 								<div class="invalid-feedback">
@@ -143,11 +147,7 @@
 
 						<div class="my-3">
 							<div class="form-check">
-								<input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-								<label class="form-check-label" for="credit">Credit card</label>
-							</div>
-							<div class="form-check">
-								<input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+								<input id="debit" type="radio" class="form-check-input" required="">
 								<label class="form-check-label" for="debit">Debit card</label>
 							</div>
 							<div class="form-check">
@@ -159,7 +159,7 @@
 						<div class="row gy-3">
 							<div class="col-md-6">
 								<label for="cc-name" class="form-label">Name on card</label>
-								<input type="text" class="glass-input" id="nameOnCard" placeholder="" required="">
+								<input type="text" class="glass-input" id="nameOnCard" name="nameOnCard" placeholder="" required="">
 								<small class="text-body-secondary">Full name as displayed on card</small>
 								<div class="invalid-feedback">
 									Name on card is required
@@ -169,7 +169,8 @@
 
 							<div class="col-md-6">
 								<label for="cc-number" class="form-label">Credit card number</label>
-								<input type="text" class="glass-input" id="creditCardNumber" placeholder="" required="">
+								<input type="text" class="glass-input" id="creditCardNumber" name="creditCardNumber" placeholder=""
+									required="">
 								<div class="invalid-feedback">
 									Credit card number is required
 								</div>
@@ -178,7 +179,7 @@
 
 							<div class="col-md-3">
 								<label for="cc-expiration" class="form-label">Expiration</label>
-								<input type="text" class="glass-input" id="expiration" placeholder="" required="">
+								<input type="text" class="glass-input" id="expiration" name="expiration" placeholder="" required="">
 								<div class="invalid-feedback">
 									Expiration date required
 								</div>
@@ -187,7 +188,7 @@
 
 							<div class="col-md-3">
 								<label for="cc-cvv" class="form-label">CVV</label>
-								<input type="text" class="glass-input" id="CVV" placeholder="" required="">
+								<input type="text" class="glass-input" id="CVV" name="CVV" placeholder="" required="">
 								<div class="invalid-feedback">
 									Security code required
 								</div>
@@ -202,6 +203,7 @@
 						<a href="/" class="register_btn">Homepage</a>
 						<span class="error-balloon" id="formError">Please fill in all required fields.</span>
 					</form>
+
 				</div>
 			</div>
 		</div>

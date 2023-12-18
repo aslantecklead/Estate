@@ -36,7 +36,7 @@ Content-Type: application/json
   "name": "Петр",
   "firstName": "Петр",
   "lastName": "Петров",
-  "email": "petr@example.com",
+  "email": "aslan@gmail.com",
   "password": "securePassword123",
   "phoneNumber": "9876543210",
   "city": "Санкт-Петербург",

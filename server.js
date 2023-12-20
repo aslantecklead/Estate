@@ -6,7 +6,6 @@ const port = 3001;
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql');
-const router = express.Router();
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -45,9 +44,6 @@ app.get('/current', (req, res) => {
   res.sendFile(__dirname + '/pages/StatisticPage.html');
 });
 
-app.get('/add_property', (req, res) => {
-  res.sendFile(__dirname + '/pages/admin/addProperty.html');
-});
 
 let dataset;
 
@@ -125,86 +121,43 @@ app.get('/propertyData', (req, res) => {
   });
 });
 
-// app.post('/createBackup', (req, res) => {
-//   const backupFilePath = 'backup.sql'; 
+app.post('/createBackup', (req, res) => {
+  try {
+    const fileName = `${process.env.DB_NAME}_${moment().format('YYYY_MM_DD')}.sql`;
+    const backupPath = `/Path/You/Want/To/Save/${fileName}`; // Путь, куда сохранить бэкап
 
-//   const mysqldump = spawn('mysqldump', [
-//     '-h',
-//     process.env.DB_HOST,
-//     '-u',
-//     process.env.DB_USER, 
-//     `-p${process.env.DB_PASSWORD}`, 
-//     process.env.DB_NAME,
-//   ]);
-  
+    const wstream = fs.createWriteStream(backupPath);
+    console.log('---------------------');
+    console.log('Running Database Backup Job');
 
-//   const writeStream = fs.createWriteStream(backupFilePath);
-//   mysqldump.stdout.pipe(writeStream);
+    const mysqldump = spawn('mysqldump', [
+      '-u',
+      process.env.DB_USER,
+      `-p${process.env.DB_PASSWORD}`,
+      process.env.DB_NAME,
+    ]);
 
-//   mysqldump.on('exit', (code) => {
-//     if (code === 0) {
-//       res.download(backupFilePath); 
-//     } else {
-//       res.status(500).send('Произошла ошибка при создании бэкапа');
-//     }
-//   });
-// });
+    mysqldump.stdout.pipe(wstream);
 
-// module.exports = router;
-
-app.post('/add_property_data', (req, res) => {
-  const {
-    propertyDescription,
-    price,
-    agentName,
-    estateAddress,
-    beds,
-    baths,
-    estatePrice,
-    brokerName,
-    imageUrl,
-    latitude,
-    longitude,
-    area,
-    dealPropertyDescription,
-    dealPrice,
-    dealDate,
-    clientName,
-    clientEmail,
-    clientPhoneNumber
-  } = req.body;
-
-  const sql = `
-    CALL InsertAllData(
-      '${propertyDescription}',
-      ${price},
-      '${agentName}',
-      '${estateAddress}',
-      ${beds},
-      ${baths},
-      '${estatePrice}',
-      '${brokerName}',
-      '${imageUrl}',
-      '${latitude}',
-      '${longitude}',
-      ${area},
-      '${dealPropertyDescription}',
-      ${dealPrice},
-      '${dealDate}',
-      '${clientName}',
-      '${clientEmail}',
-      '${clientPhoneNumber}'
-    );
-  `;
-
-  connection.query(sql, (error, results, fields) => {
-    if (error) {
-      console.error('Ошибка при вставке данных:', error);
-      res.status(500).json({ error: 'Ошибка при вставке данных' });
-      return;
-    }
-    res.json({ message: 'Данные успешно добавлены в базу данных' });
-  });
+    mysqldump.on('exit', (code) => {
+      if (code === 0) {
+        console.log('DB Backup Completed!');
+        res.download(backupPath, fileName, (err) => {
+          if (err) {
+            console.error('Ошибка при отправке файла бэкапа:', err);
+            res.status(500).send('Ошибка при отправке файла бэкапа');
+          } else {
+            console.log('Файл бэкапа успешно отправлен клиенту');
+          }
+        });
+      } else {
+        console.error('Произошла ошибка при создании бэкапа');
+        res.status(500).send('Произошла ошибка при создании бэкапа');
+      }
+    });
+  } catch (error) {
+    console.error('Ошибка при создании бэкапа:', error);
+    res.status(500).send('Ошибка при создании бэкапа');
+  }
 });
-
 app.listen(3001);

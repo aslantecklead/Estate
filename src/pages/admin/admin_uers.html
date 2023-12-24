@@ -23,7 +23,7 @@
 						<a class="nav-link" href="/pages/admin/addProperty.html">Add property</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/pages/admin/admin_uers.html">Users</a>
+						<a class="nav-link" href="/pages/admin/admin_users.html">Users</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Settings</a>
@@ -42,7 +42,6 @@
 				<ul class="list-group">
 					<li class="list-group-item">Dashboard</li>
 					<li class="list-group-item">Pages</li>
-
 				</ul>
 			</div>
 			<div class="col-lg-9">
@@ -52,39 +51,39 @@
 		</div>
 	</div>
 
-	<h1 class='all'>All Property Data</h1>
+	<h1 class='all'>All Users Data</h1>
 
 	<div class="row">
-		<button id="exportButton" class="btn btn-primary">Import to CSV</button>
-		<button id="exportSql" class="btn btn-primary">Import to SQL</button>
+		<button id="newUser" class="btn btn-primary">Add new user</button>
 		<div class="col-lg-12">
 			<div class="table-responsive">
 				<table class="table table-striped">
-
+					<!-- Здесь будут заголовки столбцов -->
 					<thead>
 						<tr>
-							<th>ID Offer</th>
-							<th>Offer Description</th>
-							<th>Offer Price</th>
-							<th>Agent Name</th>
-							<th>Estate Address</th>
-							<th>Estate Beds</th>
-							<th>Estate Baths</th>
-							<th>Estate Price</th>
-							<th>Broker Name</th>
-							<th>Image URL</th>
-							<th>Latitude</th>
-							<th>Longitude</th>
-							<th>Estate Area</th>
-							<th>Deal Date</th>
-							<th>Client Name</th>
-							<th>Client Email</th>
-							<th>Client Phone Number</th>
-							<th>Showing Date</th>
-							<th>Showing Client Name</th>
+							<th>ID</th>
+							<th>Name</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Name on Card</th>
+							<th>Credit Card Number</th>
+							<th>Expiration</th>
+							<th>CVV</th>
+							<th>Email</th>
+							<th>Password</th>
+							<th>Phone Number</th>
+							<th>Deal ID</th>
+							<th>Age</th>
+							<th>Passport Series</th>
+							<th>Passport Number</th>
+							<th>City</th>
+							<th>Avatar URL</th>
 						</tr>
 					</thead>
+
+					<!-- Здесь будут данные о пользователях -->
 					<tbody>
+						<!-- Сюда будут добавлены строки с данными о пользователях -->
 					</tbody>
 				</table>
 			</div>
@@ -92,10 +91,8 @@
 	</div>
 
 	<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="/scripts/Admin/parse_allData.js"></script>
+	<script src="/scripts/Admin/parse_allUsers.js"></script>
 	<script src="/scripts/Admin/create_backup.js"></script>
-	<script>
-	</script>
 
 </body>
 

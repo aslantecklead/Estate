@@ -99,7 +99,7 @@ CALL InsertAllData(
     '456 Oak St',
     2,
     2,
-    '$250,000',
+    '250.000',
     'Broker Name',
     'http://example.com/image.jpg',
     '40.7128',
@@ -140,4 +140,49 @@ END //
 
 DELIMITER ;
 CALL GetLatestPropertyData();
+
+DELIMITER //
+
+CREATE PROCEDURE DeleteOfferAndRelatedData(IN offerId INT)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error occurred during deletion';
+    END;
+
+    START TRANSACTION;
+
+    DELETE FROM showingSchedule WHERE id_showingSchedule IN (SELECT id_showingSchedule FROM offer WHERE id_offer = offerId);
+    DELETE FROM client WHERE id_deal IN (SELECT id_deal FROM deal WHERE id_offer = offerId);
+    DELETE FROM deal WHERE id_offer = offerId;
+    DELETE FROM estate WHERE id_estate IN (SELECT id_estate FROM offer WHERE id_offer = offerId);
+    DELETE FROM offer WHERE id_offer = offerId;
+
+    COMMIT;
+    SELECT 'Data deleted successfully';
+END //
+
+DELIMITER ;
+
+CALL DeleteOfferAndRelatedData(4);
+
+BEGIN TRANSACTION;
+
+DELETE FROM deal WHERE id_offer = '1';
+DELETE FROM client WHERE id_deal NOT IN (SELECT id_deal FROM deal);
+DELETE FROM showingSchedule WHERE id_showingSchedule NOT IN (SELECT id_showingSchedule FROM offer);
+
+DELETE FROM offer WHERE id_offer = '1';
+DELETE FROM estate WHERE id_estate = (SELECT id_estate FROM offer WHERE id_offer = '1');
+
+COMMIT;
+
+
+
+
+
+
+
+
 

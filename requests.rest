@@ -19,10 +19,18 @@ POST http://localhost:4000/login
 Content-Type: application/json
 
 {
-  "email": "petr@example.com",
-  "password": "securePassword123"
+  "email": "Admin@mail.com",
+  "password": "Admin123"
 }
 
+###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+  "email": "user@mail.com",
+  "password": "user"
+}
 
 ###
 GET http://localhost:4000/current-user
@@ -33,11 +41,11 @@ POST http://localhost:4000/register
 Content-Type: application/json
 
 {
-  "name": "Петр",
-  "firstName": "Петр",
-  "lastName": "Петров",
-  "email": "aslan@gmail.com",
-  "password": "securePassword123",
+  "name": "Admin",
+  "firstName": "Admin",
+  "lastName": "Admin",
+  "email": "Admin@mail.com",
+  "password": "Admin123",
   "phoneNumber": "9876543210",
   "city": "Санкт-Петербург",
   "age": 25,
@@ -47,5 +55,6 @@ Content-Type: application/json
   "creditCardNumber": "9876543210987654",
   "expiration": "09/23",
   "CVV": "456",
-  "id_deal": 1
+  "id_deal": 1,
+  "role": 2
 }

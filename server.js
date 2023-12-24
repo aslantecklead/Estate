@@ -125,6 +125,34 @@ app.get('/propertyData', (req, res) => {
   });
 });
 
+app.get('/users', (req, res) => {
+  connection.query('SELECT * FROM Client', (error, results, fields) => {
+    if (error) {
+      console.error('Ошибка при получении данных:', error);
+      res.status(500).json({ error: 'Ошибка при получении данных' });
+      return;
+    }
+    res.json(results);
+  });
+});
+
+app.delete('/users/:id', (req, res) => {
+  const userId = req.params.id; 
+
+  const sql = 'DELETE FROM client WHERE id_client = ?'; 
+
+  connection.query(sql, userId, (error, results, fields) => {
+      if (error) {
+          console.error('Ошибка при удалении пользователя:', error);
+          res.status(500).json({ error: 'Ошибка при удалении пользователя' });
+      } else {
+          console.log('Пользователь успешно удален');
+          res.status(200).json({ message: 'Пользователь успешно удален' });
+      }
+  });
+});
+
+
 // app.post('/createBackup', (req, res) => {
 //   const backupFilePath = 'backup.sql'; 
 
@@ -206,5 +234,51 @@ app.post('/add_property_data', (req, res) => {
     res.json({ message: 'Данные успешно добавлены в базу данных' });
   });
 });
+
+app.delete('/propertyData/:id_offer', (req, res) => {
+  const id_offer = req.params.id_offer;
+
+  connection.beginTransaction(function(err) {
+    if (err) {
+      throw err;
+    }
+
+    const deleteQueries = [
+      `DELETE FROM deal WHERE id_offer = '${id_offer}'`,
+      `DELETE FROM client WHERE id_deal NOT IN (SELECT id_deal FROM deal)`,
+      `DELETE FROM showingSchedule WHERE id_showingSchedule NOT IN (SELECT id_showingSchedule FROM offer)`,
+      `DELETE FROM offer WHERE id_offer = '${id_offer}'`,
+      `DELETE FROM estate WHERE id_estate = (SELECT id_estate FROM offer WHERE id_offer = '${id_offer}')`
+    ];
+
+    const executeQueries = (index) => {
+      if (index === deleteQueries.length) {
+        connection.commit(function(err) {
+          if (err) {
+            return connection.rollback(function() {
+              res.status(500).json({ error: 'Ошибка при выполнении транзакции' });
+            });
+          }
+          res.status(200).json({ message: 'Записи успешно удалены' });
+        });
+        return;
+      }
+
+      connection.query(deleteQueries[index], function(error, results, fields) {
+        if (error) {
+          return connection.rollback(function() {
+            res.status(500).json({ error: `Ошибка при удалении записей: ${error.message}` });
+          });
+        }
+
+        executeQueries(index + 1);
+      });
+    };
+
+    executeQueries(0);
+  });
+});
+
+
 
 app.listen(3001);

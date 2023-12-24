@@ -24,11 +24,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     console.log("Ответ сервера:", data);
     localStorage.setItem('accessToken', data.accessToken);
     localStorage.setItem('refreshToken', data.refreshToken);
-    localStorage.setItem('userId', data.id); 
-    console.log('Tokens сохранены:', data.accessToken, data.refreshToken);
+    localStorage.setItem('userId', data.id);
+    localStorage.setItem('role', data.role); 
+    console.log('Роль пользователя:', data.role);
     window.location.href = '/';
   })
   .catch(error => {
-    console.error('There has been a problem with your fetch operation:', error); 
+    console.error('Проблема с запросом:', error); 
   });  
 });

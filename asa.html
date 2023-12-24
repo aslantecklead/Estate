@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your Modules</title>
+	<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<div class="mermaid">
+		classDiagram
+		class AddPropertyFormValidator {
+		+ validateForm()
+		+ checkFormFields()
+		+ validateInputFields()
+		}
+		class AddPropertyToDB {
+		+ savePropertyToDatabase()
+		+ updatePropertyInDatabase()
+		+ deletePropertyFromDatabase()
+		}
+		class CreateBackup {
+		+ createBackup()
+		+ scheduleBackup()
+		+ deleteOldBackups()
+		}
+		class ParseAllData {
+		+ parseData()
+		+ extractInformation()
+		+ transformData()
+		}
+		class FormValidator {
+		+ validateFormFields()
+		+ checkFieldsValidity()
+		+ handleFormSubmission()
+		}
+		class UserLogout {
+		+ logoutUser()
+		+ clearUserData()
+		}
+		class UserController {
+		+ getUser()
+		+ updateUser()
+		+ deleteUser()
+		}
+		class YaMaps {
+		+ initializeMap()
+		+ addMarkers()
+		+ setMapOptions()
+		}
+		class CitiesList {
+		+ fetchCityList()
+		+ displayCities()
+		+ filterCities()
+		}
+		class RegisterClient {
+		+ createClientAccount()
+		+ updateClientInfo()
+		+ deleteClientAccount()
+		}
+		class RegistrationValidator {
+		+ validateRegistrationFields()
+		+ checkRegistrationValidity()
+		+ handleRegistrationSubmission()
+		}
+		class ClientStatistics {
+		+ fetchClientStats()
+		+ analyzeStats()
+		+ displayStats()
+		}
+		class Statistics {
+		+ fetchGeneralStats()
+		+ analyzeGeneralStats()
+		+ displayGeneralStats()
+		}
+		class AuthForm {
+		+ displayLoginForm()
+		+ handleLoginSubmission()
+		+ showResetPasswordForm()
+		}
+		class CardGeneration {
+		+ generateCard()
+		+ customizeCard()
+		+ saveCard()
+		}
+		class CreateDocument {
+		+ generateDocument()
+		+ editDocument()
+		+ saveDocument()
+		}
+		class Database {
+		+ connectToDB()
+		+ queryDatabase()
+		+ updateDatabase()
+		+ deleteFromDB()
+		}
+		class DragBox {
+		+ enableDragAndDrop()
+		+ handleDrop()
+		+ rearrangeItems()
+		}
+		class EstatePageMap {
+		+ displayEstateOnMap()
+		+ customizeMapForEstate()
+		+ showEstateDetailsOnMap()
+		}
+		class EstatePage {
+		+ displayEstateInfo()
+		+ editEstateInfo()
+		+ saveEstateChanges()
+		}
+		class GetUserData {
+		+ fetchData()
+		+ extractUserData()
+		+ transformDataForUse()
+		}
+		class Pages {
+		+ displayPageContent()
+		+ updatePageContent()
+		+ createNewPage()
+		}
+		class Pagination {
+		+ showPagination()
+		+ handlePageChange()
+		+ updatePagination()
+		}
+		class SearchEstate {
+		+ searchByCriteria()
+		+ filterResults()
+		+ displaySearchResults()
+		}
+		class UserDataTemp {
+		+ storeTempData()
+		+ retrieveTempData()
+		+ clearTempData()
+		}
+		class AuthServer {
+		+ authenticateUser()
+		+ authorizeAccess()
+		+ handleTokens()
+		}
+		class RequestsREST {
+		+ makeGETRequest()
+		+ makePOSTRequest()
+		+ makePUTRequest()
+		+ makeDELETERequest()
+		}
+		class Server {
+		+ startServer()
+		+ handleRequests()
+		+ processResponses()
+		}
+
+		AddPropertyFormValidator --> FormValidator
+		AddPropertyFormValidator --> ParseAllData
+		AddPropertyFormValidator --> UserLogout
+		AddPropertyFormValidator --> YaMaps
+		AddPropertyToDB --> Database
+		UserController --> AuthServer
+		UserController --> Database
+		UserController --> UserDataTemp
+		UserLogout --> AuthServer
+		UserLogout --> Database
+		UserLogout --> UserDataTemp
+
+		CreateBackup --> Database
+		ParseAllData --> Database
+		FormValidator --> Database
+		UserLogout --> AuthForm
+		UserController --> CardGeneration
+		UserController --> SearchEstate
+		YaMaps --> CitiesList
+		YaMaps --> EstatePageMap
+		RegisterClient --> RegistrationValidator
+		RegisterClient --> UserDataTemp
+		ClientStatistics --> Statistics
+		AuthForm --> AuthServer
+		CardGeneration --> CreateDocument
+		CreateDocument --> Database
+		DragBox --> UserDataTemp
+		EstatePageMap --> Database
+		EstatePage --> EstatePageMap
+		GetUserData --> Database
+		Pages --> Pagination
+		Pages --> SearchEstate
+		Pagination --> UserDataTemp
+		SearchEstate --> Database
+		UserDataTemp --> Database
+		AuthServer --> RequestsREST
+		AuthServer --> Server
+		RequestsREST --> Server
+	</div>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true
+		});
+	</script>
+</body>
+
+</html>

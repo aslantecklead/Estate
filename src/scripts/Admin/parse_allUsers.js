@@ -1,12 +1,12 @@
-async function fetchDataAndPopulateTable() {
+async function fetchUsersAndPopulateTable() {
 	try {
-		const response = await fetch('/propertyData');
+		const response = await fetch('/users'); 
 		const data = await response.json();
 
 		const tableBody = document.querySelector('table tbody');
 		tableBody.innerHTML = '';
 
-		data.forEach(row => {
+		data.forEach(user => {
 			const newRow = document.createElement('tr');
 
 			const deleteButtonCell = document.createElement('td');
@@ -14,30 +14,34 @@ async function fetchDataAndPopulateTable() {
 			deleteButton.textContent = 'Delete';
 
 			deleteButton.addEventListener('click', async () => {
+				const userId = user.id_client; 
+		
 				try {
-					const deleteResponse = await fetch(`http://localhost:3001/propertyData/${row.id_offer}`, {
-						method: 'DELETE'	
-					});
-
-					if (deleteResponse.ok) {
-						await fetchDataAndPopulateTable();
-					} else {
-						throw new Error('Не удалось удалить запись');
-					}
+						const deleteResponse = await fetch(`http://localhost:3001/users/${userId}`, {
+								method: 'DELETE'
+						});
+		
+						if (deleteResponse.ok) {
+								await fetchUsersAndPopulateTable();
+						} else {
+								throw new Error('Не удалось удалить запись');
+						}
 				} catch (error) {
-					console.error('Ошибка при удалении:', error);
+						console.error('Ошибка при удалении:', error);
 				}
-			});
+		});
+		
+		
 
 			deleteButtonCell.appendChild(deleteButton);
 			newRow.appendChild(deleteButtonCell);
 
-			Object.entries(row).forEach(([key, value]) => {
+			Object.entries(user).forEach(([key, value]) => {
 				const newCell = document.createElement('td');
 				if (key === 'imageUrl') {
 					const newImage = document.createElement('img');
 					newImage.src = value;
-					newImage.alt = 'Property Image';
+					newImage.alt = 'User Image';
 					newImage.width = 250;
 					newCell.appendChild(newImage);
 				} else {
@@ -47,8 +51,8 @@ async function fetchDataAndPopulateTable() {
 			});
 
 			newRow.addEventListener('click', () => {
-				localStorage.setItem('selectedRowId', row.id_offer);
-				console.log('ID записи:', row.id_offer);
+				localStorage.setItem('selectedUserId', user.id);
+				console.log('ID пользователя:', user.id);
 			});
 
 			tableBody.appendChild(newRow);
@@ -58,4 +62,4 @@ async function fetchDataAndPopulateTable() {
 	}
 }
 
-window.onload = fetchDataAndPopulateTable;
+window.onload = fetchUsersAndPopulateTable;

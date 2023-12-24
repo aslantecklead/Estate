@@ -54,7 +54,7 @@ app.delete('/logout', (req, res) => {
 
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
-  
+
   connection.query('SELECT * FROM client WHERE email = ?', [email], (err, results) => {
     if (err) {
       console.error('Ошибка при поиске пользователя:', err);
@@ -64,7 +64,7 @@ app.post('/login', (req, res) => {
       return res.status(401).json({ message: 'Неверный логин или пароль' });
     }
 
-    const user = results[0]; 
+    const user = results[0];
     bcrypt.compare(password, user.password, (err, passwordsMatch) => {
       if (err) {
         console.error('Ошибка при сравнении паролей:', err);
@@ -74,25 +74,26 @@ app.post('/login', (req, res) => {
         return res.status(401).json({ message: 'Неверный логин или пароль' });
       }
 
-      if (user.id_role === 1) { 
+      // Fetch user role from the database
+      connection.query('SELECT role FROM client WHERE email = ?', [email], (err, roleResult) => {
+        if (err) {
+          console.error('Ошибка при получении роли пользователя:', err);
+          return res.sendStatus(500);
+        }
+
+        const userRole = roleResult[0].role;
+
         const userData = {
           id: user.id_client,
           email: email,
-          role: 'admin'
+          role: userRole
         };
+
         const accessToken = generateAccessToken(userData);
         const refreshToken = jwt.sign(userData, process.env.REFRESH_TOKEN_SECRET);
-        
-        connection.query('UPDATE client_tokens SET refresh_token = ? WHERE id_client = ?', [refreshToken, user.id_client], (err) => {
-          if (err) {
-            console.error('Ошибка при обновлении refresh токена:', err);
-            return res.sendStatus(500);
-          }
-          res.json({ id: userData.id, accessToken: accessToken, refreshToken: refreshToken });
-        });
-      } else {
-        return res.status(403).json({ message: 'У вас нет прав доступа' });
-      }
+
+        res.json({ id: userData.id, accessToken: accessToken, refreshToken: refreshToken, role: userRole });
+      });
     });
   });
 });
